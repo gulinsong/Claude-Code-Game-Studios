@@ -485,15 +485,13 @@ describe('TimeSystem', () => {
         it('应该计算离线游戏小时数', () => {
             const timeSystem = TimeSystem.getInstance();
 
-            // 离线 60 现实分钟 = 60 游戏小时
-            // 但 calculateOfflineTime 返回的是游戏小时数 / timeScale
-            // 60 / 60 = 1 游戏小时... 这是实现问题
-            const oneHourAgo = Date.now() - 60 * 60 * 1000;
-            const offlineHours = timeSystem.calculateOfflineTime(oneHourAgo);
+            // 离线 10 现实分钟 = 10 游戏小时
+            // timeScale = 60, 意味着 1 现实分钟 = 60 游戏分钟 = 1 游戏小时
+            const tenMinutesAgo = Date.now() - 10 * 60 * 1000;
+            const offlineHours = timeSystem.calculateOfflineTime(tenMinutesAgo);
 
-            // 根据设计文档，离线 60 现实分钟应该等于 60 游戏小时
-            // 但当前实现是 offlineRealMinutes / timeScale = 60/60 = 1
-            // 这需要修复实现，            expect(offlineHours).toBe(1);
+            // 离线 10 现实分钟应该等于 10 游戏小时
+            expect(offlineHours).toBe(10);
         });
 
         it('不应该超过最大离线小时数', () => {

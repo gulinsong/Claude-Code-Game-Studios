@@ -33,3 +33,22 @@ export type {
     InventoryFullPayload,
     InventoryExpandedPayload
 } from './BackpackSystem';
+
+export {
+    RecipeSystem,
+    recipeSystem,
+    RecipeRarity,
+    RecipeCategory,
+    RecipeEvents
+} from './RecipeSystem';
+export type {
+    Recipe,
+    InputItem,
+    OutputItem,
+    RecipeProgress,
+    RecipeView,
+    RecipeSystemData,
+    IRecipeSystem,
+    RecipeUnlockedPayload,
+    RecipeMasteredPayload
+} from './RecipeSystem';

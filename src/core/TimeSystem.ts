@@ -566,9 +566,10 @@ export class TimeSystem implements ITimeSystem {
     public calculateOfflineTime(lastSaveTimestamp: number): number {
         const now = Date.now();
         const offlineRealMinutes = (now - lastSaveTimestamp) / 60000;
-        // 根据设计文档： 60 现实分钟 = 60 游戏小时
-        // offlineRealMinutes * timeScale = 60/60 = 1 游戏小时
-        const offlineGameHours = offlineRealMinutes * this.config.timeScale;
+        // 根据设计文档：timeScale = 60，意味着 1 现实分钟 = 60 游戏分钟
+        // 离线 60 现实分钟 = 60 * 60 = 3600 游戏分钟 = 60 游戏小时
+        const offlineGameMinutes = offlineRealMinutes * this.config.timeScale;
+        const offlineGameHours = offlineGameMinutes / 60;
 
         return Math.min(offlineGameHours, this.config.maxOfflineHours);
     }
