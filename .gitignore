@@ -33,6 +33,15 @@ dist/
 *.dylib
 *.app
 
+# === Test Coverage ===
+coverage/
+
+# === Engine: Cocos Creator ===
+library/
+local/
+temp/
+*.meta
+
 # === Engine: Godot ===
 .godot/
 *.translation

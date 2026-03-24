@@ -5,14 +5,15 @@ Each agent owns a specific domain, enforcing separation of concerns and quality.
 
 ## Technology Stack
 
-- **Engine**: [CHOOSE: Godot 4 / Unity / Unreal Engine 5]
-- **Language**: [CHOOSE: GDScript / C# / C++ / Blueprint]
+- **Engine**: Cocos Creator 3.8.8
+- **Language**: TypeScript (primary), JavaScript (legacy)
 - **Version Control**: Git with trunk-based development
-- **Build System**: [SPECIFY after choosing engine]
-- **Asset Pipeline**: [SPECIFY after choosing engine]
+- **Build System**: Cocos Creator Build Pipeline
+- **Asset Pipeline**: Cocos Creator Asset Database + 远程资源加载 (CDN)
+- **Target Platform**: 微信小程序（首发）→ iOS App（后续）
 
-> **Note**: Engine-specialist agents exist for Godot, Unity, and Unreal with
-> dedicated sub-specialists. Use the set matching your engine.
+> **Note**: 此项目使用 Cocos Creator 开发微信小游戏。
+> 参考 docs/engine-reference/cocos-creator/ 获取版本相关 API 信息。
 
 ## Project Structure
 
@@ -20,7 +21,7 @@ Each agent owns a specific domain, enforcing separation of concerns and quality.
 
 ## Engine Version Reference
 
-@docs/engine-reference/godot/VERSION.md
+@docs/engine-reference/cocos-creator/VERSION.md
 
 ## Technical Preferences
 

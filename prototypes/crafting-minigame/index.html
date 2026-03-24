@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手工艺迷你游戏原型 - 做月饼</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- 开始界面 -->
+        <div id="start-screen" class="screen">
+            <h1>🥮 做月饼</h1>
+            <p>点击屏幕开始</p>
+            <div class="instructions">
+                <p>阶段 1: 快速点击揉面</p>
+                <p>阶段 2: 拖拽馅料到中心</p>
+                <p>阶段 3: 选择模具压模</p>
+            </div>
+        </div>
+
+        <!-- 游戏界面 -->
+        <div id="game-screen" class="screen hidden">
+            <!-- 阶段指示 -->
+            <div id="stage-indicator">
+                <span id="stage-text">阶段 1/3: 揉面</span>
+                <div id="progress-bar">
+                    <div id="progress-fill"></div>
+                </div>
+            </div>
+
+            <!-- 游戏区域 -->
+            <div id="game-area">
+                <!-- 阶段 1: 揉面 -->
+                <div id="stage1" class="stage">
+                    <div id="dough" class="dough">面团</div>
+                    <div id="tap-hint" class="hint">👆 快速点击!</div>
+                    <div id="tap-counter">0/10</div>
+                </div>
+
+                <!-- 阶段 2: 包馅 -->
+                <div id="stage2" class="stage hidden">
+                    <div id="wrapper" class="wrapper">
+                        <div id="filling" class="filling draggable">馅料</div>
+                        <div id="dough-wrapper" class="dough-wrapper">面皮</div>
+                    </div>
+                    <div id="drag-hint" class="hint">👆 拖拽馅料到面皮中心</div>
+                </div>
+
+                <!-- 阶段 3: 压模 -->
+                <div id="stage3" class="stage hidden">
+                    <div id="mold-selector">
+                        <div class="mold" data-mold="flower">🌸 花朵</div>
+                        <div class="mold" data-mold="moon">🌙 月亮</div>
+                        <div class="mold" data-mold="star">⭐ 星星</div>
+                    </div>
+                    <div id="mooncake-preview" class="mooncake-preview">月饼</div>
+                    <div id="mold-hint" class="hint">👆 选择一个模具</div>
+                </div>
+            </div>
+
+            <!-- 反馈区域 -->
+            <div id="feedback"></div>
+        </div>
+
+        <!-- 完成界面 -->
+        <div id="complete-screen" class="screen hidden">
+            <h1>🎉 制作完成!</h1>
+            <div id="result-display">
+                <div id="result-mooncake" class="mooncake-result">🥮</div>
+                <p id="result-text">你做出了美味的月饼!</p>
+            </div>
+            <div id="stats">
+                <p>用时: <span id="time-spent">0</span> 秒</p>
+                <p>精准度: <span id="accuracy">100</span>%</p>
+            </div>
+            <button id="retry-btn">再做一次</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
