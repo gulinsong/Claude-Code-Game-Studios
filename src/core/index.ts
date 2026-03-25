@@ -51,3 +51,15 @@ export type {
     ObjectPoolConfig,
     ObjectPoolStats
 } from './ObjectPool';
+
+// 本地化系统
+export {
+    LocalizationSystem,
+    Language,
+    LocalizationEvents,
+    t
+} from './LocalizationSystem';
+export type {
+    LocalizationConfig,
+    StringTable
+} from './LocalizationSystem';
