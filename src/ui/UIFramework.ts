@@ -361,6 +361,9 @@ export class UIFramework implements IUIFramework {
     /** Toast 是否正在显示 */
     private toastShowing: boolean = false;
 
+    /** Toast 定时器 ID */
+    private toastTimerId: ReturnType<typeof setTimeout> | null = null;
+
     /** 当前 Toast 节点 */
     private toastNode: IUINode | null = null;
 
@@ -642,6 +645,12 @@ export class UIFramework implements IUIFramework {
     }
 
     public reset(): void {
+        // 清理 Toast 定时器
+        if (this.toastTimerId !== null) {
+            clearTimeout(this.toastTimerId);
+            this.toastTimerId = null;
+        }
+
         this.closeAllUI();
         this.uiConfigs.clear();
         this.activeUIs.clear();
@@ -781,6 +790,12 @@ export class UIFramework implements IUIFramework {
      * 处理 Toast 队列
      */
     private processToastQueue(): void {
+        // 清除之前的定时器
+        if (this.toastTimerId !== null) {
+            clearTimeout(this.toastTimerId);
+            this.toastTimerId = null;
+        }
+
         if (this.toastQueue.length === 0) {
             this.toastShowing = false;
             return;
@@ -793,7 +808,8 @@ export class UIFramework implements IUIFramework {
         console.log(`[UIFramework] Toast: ${message}`);
 
         // 设置定时器自动隐藏
-        setTimeout(() => {
+        this.toastTimerId = setTimeout(() => {
+            this.toastTimerId = null;
             this.processToastQueue();
         }, duration);
     }

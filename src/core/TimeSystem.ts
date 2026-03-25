@@ -285,6 +285,12 @@ export class TimeSystem implements ITimeSystem {
             return;
         }
 
+        // 输入验证
+        if (!Number.isFinite(deltaMs) || deltaMs < 0) {
+            console.warn('[TimeSystem] Invalid deltaMs:', deltaMs);
+            return;
+        }
+
         // 计算游戏时间增量
         // 现实 1 分钟 = 游戏 timeScale 分钟
         // 现实 1 毫秒 = 游戏 timeScale / 60000 分钟

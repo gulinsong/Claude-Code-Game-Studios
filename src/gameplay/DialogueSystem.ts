@@ -651,6 +651,7 @@ export class DialogueSystem implements IDialogueSystem {
             }
 
             default:
+                console.warn('[DialogueSystem] Unknown condition type:', condition.type, condition);
                 return false;
         }
     }

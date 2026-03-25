@@ -80,7 +80,7 @@ export interface GatheringResult {
     /** 是否成功 */
     success: boolean;
     /** 失败原因 */
-    reason?: 'INSUFFICIENT_STAMINA' | 'ON_COOLDOWN' | 'LOCKED' | 'NO_MATERIALS';
+    reason?: 'INSUFFICIENT_STAMINA' | 'ON_COOLDOWN' | 'LOCKED' | 'NO_MATERIALS' | 'ERROR';
     /** 获得的材料 */
     materials: Array<{
         materialId: string;
@@ -276,119 +276,135 @@ export class GatheringSystem implements IGatheringSystem {
      * 执行采集
      */
     public gather(spotId: string): GatheringResult {
-        const spot = this.spots.get(spotId);
-        const state = this.spotStates.get(spotId);
+        try {
+            const spot = this.spots.get(spotId);
+            const state = this.spotStates.get(spotId);
 
-        if (!spot || !state) {
+            if (!spot || !state) {
+                return {
+                    success: false,
+                    reason: 'LOCKED',
+                    materials: [],
+                    staminaConsumed: 0,
+                    pityTriggered: false
+                };
+            }
+
+            // 检查是否解锁
+            if (!this.unlockedSpots.has(spotId)) {
+                return {
+                    success: false,
+                    reason: 'LOCKED',
+                    materials: [],
+                    staminaConsumed: 0,
+                    pityTriggered: false
+                };
+            }
+
+            // 检查冷却
+            if (this.getSpotState(spotId) === GatheringSpotState.COOLDOWN) {
+                return {
+                    success: false,
+                    reason: 'ON_COOLDOWN',
+                    materials: [],
+                    staminaConsumed: 0,
+                    pityTriggered: false
+                };
+            }
+
+            // 检查体力
+            const staminaSystem = StaminaSystem.getInstance();
+            if (!staminaSystem.hasEnoughStamina(spot.staminaCost)) {
+                return {
+                    success: false,
+                    reason: 'INSUFFICIENT_STAMINA',
+                    materials: [],
+                    staminaConsumed: 0,
+                    pityTriggered: false
+                };
+            }
+
+            // 发布开始事件
+            EventSystem.getInstance().emit<GatheringStartedPayload>(GatheringEvents.STARTED, {
+                spotId,
+                locationId: spot.locationId
+            });
+
+            // 消耗体力
+            staminaSystem.consumeStamina(spot.staminaCost);
+
+            // 计算掉落
+            const drops = this.calculateDrops(spot);
+
+            if (drops.length === 0) {
+                return {
+                    success: false,
+                    reason: 'NO_MATERIALS',
+                    materials: [],
+                    staminaConsumed: spot.staminaCost,
+                    pityTriggered: false
+                };
+            }
+
+            // 添加材料到背包
+            const backpackSystem = BackpackSystem.getInstance();
+            for (const drop of drops) {
+                try {
+                    backpackSystem.addItem(drop.materialId, ItemType.MATERIAL, drop.amount);
+                } catch (itemError) {
+                    console.error('[GatheringSystem] Failed to add item:', drop.materialId, itemError);
+                    // 继续处理其他物品
+                }
+            }
+
+            // 更新采集点状态
+            state.lastGatherTime = Date.now();
+
+            // 检查是否有传说掉落
+            const hasLegendary = drops.some(d => d.isLegendary);
+            const hasRare = drops.some(d => d.isRare);
+
+            // 发布事件
+            EventSystem.getInstance().emit<GatheringCompletedPayload>(GatheringEvents.COMPLETED, {
+                spotId,
+                materials: drops
+            });
+
+            if (hasLegendary) {
+                const legendary = drops.find(d => d.isLegendary);
+                if (legendary) {
+                    EventSystem.getInstance().emit<GatheringLegendaryDropPayload>(
+                        GatheringEvents.LEGENDARY_DROP,
+                        { spotId, materialId: legendary.materialId }
+                    );
+                }
+            } else if (hasRare) {
+                const rare = drops.find(d => d.isRare);
+                if (rare) {
+                    EventSystem.getInstance().emit<GatheringRareDropPayload>(GatheringEvents.RARE_DROP, {
+                        spotId,
+                        materialId: rare.materialId,
+                        rarity: 'RARE'
+                    });
+                }
+            }
+
             return {
-                success: false,
-                reason: 'LOCKED',
-                materials: [],
-                staminaConsumed: 0,
-                pityTriggered: false
-            };
-        }
-
-        // 检查是否解锁
-        if (!this.unlockedSpots.has(spotId)) {
-            return {
-                success: false,
-                reason: 'LOCKED',
-                materials: [],
-                staminaConsumed: 0,
-                pityTriggered: false
-            };
-        }
-
-        // 检查冷却
-        if (this.getSpotState(spotId) === GatheringSpotState.COOLDOWN) {
-            return {
-                success: false,
-                reason: 'ON_COOLDOWN',
-                materials: [],
-                staminaConsumed: 0,
-                pityTriggered: false
-            };
-        }
-
-        // 检查体力
-        const staminaSystem = StaminaSystem.getInstance();
-        if (!staminaSystem.hasEnoughStamina(spot.staminaCost)) {
-            return {
-                success: false,
-                reason: 'INSUFFICIENT_STAMINA',
-                materials: [],
-                staminaConsumed: 0,
-                pityTriggered: false
-            };
-        }
-
-        // 发布开始事件
-        EventSystem.getInstance().emit<GatheringStartedPayload>(GatheringEvents.STARTED, {
-            spotId,
-            locationId: spot.locationId
-        });
-
-        // 消耗体力
-        staminaSystem.consumeStamina(spot.staminaCost);
-
-        // 计算掉落
-        const drops = this.calculateDrops(spot);
-
-        if (drops.length === 0) {
-            return {
-                success: false,
-                reason: 'NO_MATERIALS',
-                materials: [],
+                success: true,
+                materials: drops,
                 staminaConsumed: spot.staminaCost,
                 pityTriggered: false
             };
+        } catch (error) {
+            console.error('[GatheringSystem] gather failed for spot:', spotId, error);
+            return {
+                success: false,
+                reason: 'ERROR',
+                materials: [],
+                staminaConsumed: 0,
+                pityTriggered: false
+            };
         }
-
-        // 添加材料到背包
-        const backpackSystem = BackpackSystem.getInstance();
-        for (const drop of drops) {
-            backpackSystem.addItem(drop.materialId, ItemType.MATERIAL, drop.amount);
-        }
-
-        // 更新采集点状态
-        state.lastGatherTime = Date.now();
-
-        // 检查是否有传说掉落
-        const hasLegendary = drops.some(d => d.isLegendary);
-        const hasRare = drops.some(d => d.isRare);
-
-        // 发布事件
-        EventSystem.getInstance().emit<GatheringCompletedPayload>(GatheringEvents.COMPLETED, {
-            spotId,
-            materials: drops
-        });
-
-        if (hasLegendary) {
-            const legendary = drops.find(d => d.isLegendary);
-            if (legendary) {
-                EventSystem.getInstance().emit<GatheringLegendaryDropPayload>(
-                    GatheringEvents.LEGENDARY_DROP,
-                    { spotId, materialId: legendary.materialId }
-                );
-            }
-        } else if (hasRare) {
-            const rare = drops.find(d => d.isRare);
-            if (rare) {
-                EventSystem.getInstance().emit<GatheringRareDropPayload>(GatheringEvents.RARE_DROP, {
-                    spotId,
-                    materialId: rare.materialId,
-                    rarity: 'RARE'
-                });
-            }
-        }
-
-        return {
-            success: true,
-            materials: drops,
-            staminaConsumed: spot.staminaCost,
-            pityTriggered: false
-        };
     }
 
     /**
