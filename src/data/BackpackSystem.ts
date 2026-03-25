@@ -122,7 +122,9 @@ const BACKPACK_CONFIG = {
     /** 最大每标签页格数 */
     MAX_SLOTS_PER_TAB: 24,
     /** 默认最大堆叠数（如果材料配置中没有） */
-    DEFAULT_MAX_STACK: 99
+    DEFAULT_MAX_STACK: 99,
+    /** 成品默认最大堆叠数（成品通常不可大量堆叠） */
+    DEFAULT_CRAFTED_MAX_STACK: 5
 };
 
 /**
@@ -233,9 +235,9 @@ export class BackpackSystem implements IBackpackSystem {
             const material = MaterialSystem.getInstance().getMaterial(itemId);
             return material?.maxStack ?? BACKPACK_CONFIG.DEFAULT_MAX_STACK;
         }
-        // CRAFTED 类型的物品暂时使用默认值
-        // TODO: 后续可以从成品配置系统获取
-        return BACKPACK_CONFIG.DEFAULT_MAX_STACK;
+        // CRAFTED 类型的物品使用较小的堆叠数
+        // NOTE: 成品配置系统创建后可以从配置获取，目前使用默认值
+        return BACKPACK_CONFIG.DEFAULT_CRAFTED_MAX_STACK;
     }
 
     /**

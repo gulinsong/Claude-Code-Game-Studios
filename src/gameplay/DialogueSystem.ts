@@ -9,7 +9,7 @@
 import { EventSystem } from '../core/EventSystem';
 import { BackpackSystem, ItemType } from '../data/BackpackSystem';
 import { RecipeSystem } from '../data/RecipeSystem';
-import { TimeSystem } from '../core/TimeSystem';
+import { TimeSystem, SeasonNames, PeriodNames } from '../core/TimeSystem';
 
 /**
  * 说话者
@@ -632,9 +632,23 @@ export class DialogueSystem implements IDialogueSystem {
                     (condition.params.amount as number) || 1
                 );
 
-            case TriggerType.FESTIVAL_APPROACHING:
-                // TODO: 实现节日临近检测
-                return false;
+            case TriggerType.FESTIVAL_APPROACHING: {
+                const timeSystem = TimeSystem.getInstance();
+                const daysWithin = (condition.params.daysWithin as number) ?? 3;
+                const festivalId = condition.params.festivalId as string | undefined;
+
+                if (festivalId) {
+                    // 检查特定节日是否临近期
+                    const daysUntil = timeSystem.getDaysUntilFestival(festivalId);
+                    return daysUntil >= 0 && daysUntil <= daysWithin;
+                } else {
+                    // 检查是否有任何节日临近期
+                    const currentFestival = timeSystem.getCurrentSeasonFestival();
+                    if (!currentFestival) return false;
+                    const daysUntil = timeSystem.getDaysUntilFestival(currentFestival.id);
+                    return daysUntil >= 0 && daysUntil <= daysWithin;
+                }
+            }
 
             default:
                 return false;
@@ -723,13 +737,53 @@ export class DialogueSystem implements IDialogueSystem {
 
     /**
      * 变量插值
+     * 支持格式：
+     * - {flagName} 或 {flag:flagName} - 标志位
+     * - {time:day} - 当前游戏日
+     * - {time:season} - 当前季节名称
+     * - {time:period} - 当前时段名称
+     * - {npc:npcId.friendship} - NPC 好感度
      */
     private interpolateText(text: string): string {
-        // TODO: 实现完整的变量插值
-        // 目前支持简单的标志位插值
-        return text.replace(/\{(\w+)\}/g, (match, name) => {
-            const value = this.getFlag(name);
-            return value !== undefined ? String(value) : match;
+        return text.replace(/\{(\w+)(?::(\w+(?:\.\w+)?))?\}/g, (match, namespace, key) => {
+            // 如果没有命名空间，当作标志位处理（向后兼容）
+            if (!key) {
+                const value = this.getFlag(namespace);
+                return value !== undefined ? String(value) : match;
+            }
+
+            // 根据命名空间处理
+            switch (namespace) {
+                case 'flag':
+                    const flagValue = this.getFlag(key);
+                    return flagValue !== undefined ? String(flagValue) : match;
+
+                case 'time': {
+                    const timeSystem = TimeSystem.getInstance();
+                    switch (key) {
+                        case 'day':
+                            return String(timeSystem.getGameDay());
+                        case 'season':
+                            return SeasonNames[timeSystem.getCurrentSeason()];
+                        case 'period':
+                            return PeriodNames[timeSystem.getCurrentPeriod()];
+                        default:
+                            return match;
+                    }
+                }
+
+                case 'npc':
+                    if (key.includes('.') && this.conditionEvaluator) {
+                        const [npcId, property] = key.split('.');
+                        if (property === 'friendship') {
+                            return String(this.conditionEvaluator.getFriendship(npcId));
+                        }
+                    }
+                    return match;
+
+                default:
+                    return match;
+            }
         });
     }
 }
