@@ -82,11 +82,15 @@
 
 ## Definition of Done for this Sprint
 
-- [ ] T1-T2 完成（T3-T4 已完成）
+- [ ] T1-T2 完成
 - [ ] 性能基准报告完成
 - [ ] 至少1次Playtest报告
 - [x] 所有TODOs已解决
-- [x] 3个新ADR文档
+- [x] 核心 ADR 文档 (16 ADRs, 100% MVP 覆盖)
+- [x] 内存优化 (Timer leak 修复, TimeSystem 验证)
+- [x] 对象池系统 (ObjectPool + ObjectPoolManager)
+- [x] 无障碍功能 (AccessibilitySystem)
+- [x] 错误处理增强 (GatheringSystem, UIFramework)
 - [x] 所有测试继续通过
 
 ## Progress Log
@@ -99,16 +103,48 @@
   - DialogueSystem: 实现完整变量插值 {time:*}, {npc:*}
   - BackpackSystem: 添加 DEFAULT_CRAFTED_MAX_STACK = 5
 - ✅ T4 核心 ADR 补充
-  - ADR-0002: ConfigSystem 架构
-  - ADR-0003: TimeSystem 架构
-  - ADR-0004: BackpackSystem 架构
-- ✅ 更新 project-stage-report.md
+  - ADR-0009: QuestSystem 架构
+  - ADR-0010: DialogueSystem 架构
+  - ADR-0011: StaminaSystem 架构
+  - ADR-0012: MaterialSystem 架构
+  - ADR-0013: RecipeSystem 架构
+  - ADR-0014: GatheringSystem 架构
+  - ADR-0015: WeChatLoginSystem 架构
+  - ADR-0016: UIFramework 架构
+- ✅ T5 内存优化
+  - MiniGameMooncake: 修复 baking timer 内存泄漏
+  - TimeSystem: 添加 deltaMs 输入验证
+- ✅ T6 对象池优化
+  - 新增 `src/core/ObjectPool.ts`
+  - ObjectPool: 通用对象池实现
+  - ObjectPoolManager: 单例管理器
+  - 完整测试覆盖
+- ✅ T7 无障碍功能
+  - 新增 `src/ui/AccessibilitySystem.ts`
+  - 文字缩放 (50%-150%)
+  - 色盲模式 (Protanopia/Deuteranopia/Tritanopia)
+  - 高对比度模式
+  - 动画减弱支持
+- ✅ T8 错误处理增强
+  - GatheringSystem: 添加 try-catch 错误处理
+  - UIFramework: 添加 toastTimerId 清理
+  - 新增 'ERROR' 到 GatheringResult reason 类型
 
-**测试状态**: 559 tests passing
+**测试状态**: 603 tests passing
 
 **Commits**:
 - `fix: Resolve all TODOs in codebase (Sprint 011 T3)`
 - `docs: Add ADRs for core systems (Sprint 011 T4)`
+- `docs: Update Sprint 011 progress (T4 done, 16 ADRs complete)`
+- `docs: Update Sprint 011 progress (T7 done)`
+- `feat: Add AccessibilitySystem for UI accessibility support (Sprint 011 T7)`
+- `docs: Update Sprint 011 progress (T6 done)`
+- `feat: Add ObjectPool system for memory optimization (Sprint 011 T6)`
+- `docs: Update Sprint 011 progress (T8 done)`
+- `fix: Add error handling to GatheringSystem and UIFramework (Sprint 011 T8)`
+- `docs: Update Sprint 011 progress (T5 done)`
+- `fix: Prevent baking timer leak in MooncakeMiniGame (Sprint 011 T5)`
+- `docs: Complete Sprint 011 T5 and memory optimization`
 
 ---
 
