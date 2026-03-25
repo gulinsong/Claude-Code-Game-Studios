@@ -140,7 +140,7 @@ Architecture:   ██████████░░░░░░░░░░  53
 | T2 | Playtest 报告 | ⬜ Pending |
 | T3 | 修复 TODOs | ✅ Done (0 TODOs remaining) |
 | T4 | 核心 ADR 补充 | ✅ Done (16 ADRs, 100% MVP covered) |
-| T5 | 内存优化 | 🔄 Partial (定时器清理已实现) |
+| T5 | 内存优化 | ✅ Done |
 | T6 | 对象池优化 | ✅ Done |
 | T7 | 无障碍功能 | ✅ Done |
 | T8 | 错误处理增强 | ✅ Done |
