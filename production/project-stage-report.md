@@ -194,6 +194,58 @@ Architecture:   ██████████░░░░░░░░░░  53
 | File | Purpose |
 |------|---------|
 | `src/core/ObjectPool.ts` | 通用对象池系统，减少 GC 压力 |
+| `src/core/LocalizationSystem.ts` | 多语言本地化系统 |
 | `src/ui/AccessibilitySystem.ts` | 无障碍功能支持（文字缩放、色盲模式、高对比度） |
 | `tests/core/ObjectPool.test.ts` | ObjectPool 单元测试 |
+| `tests/core/LocalizationSystem.test.ts` | LocalizationSystem 单元测试 |
 | `tests/ui/AccessibilitySystem.test.ts` | AccessibilitySystem 单元测试 |
+| `production/qa/qa-test-plan.md` | QA 测试计划 (80+ test cases) |
+| `production/release/release-checklist.md` | 发布前检查清单 |
+| `production/legal/privacy-policy.md` | 隐私政策 (中英双语) |
+| `production/legal/user-agreement.md` | 用户协议 (中英双语) |
+| `production/legal/age-rating.md` | 年龄分级说明 |
+| `production/gate-checks/polish-to-release.md` | 门禁检查报告 |
+| `CHANGELOG.md` | 版本变更记录 |
+
+---
+
+## Gate Check Status (Polish → Release)
+
+| Category | Status | Progress |
+|----------|--------|----------|
+| Required Artifacts | 6/8 | 75% |
+| Quality Checks | 4/8 | 50% |
+| Blockers Resolved | 3/6 | 50% |
+
+**Verdict**: FAIL (3 blockers remaining)
+
+**Remaining Blockers**:
+1. Performance baseline (Sprint 011 T1) - Requires Cocos Creator
+2. Playtest report (Sprint 011 T2) - Requires gameplay testing
+3. Game assets (`assets/` directory) - Requires art/audio resources
+
+**Resolved Blockers** ✅:
+- Localization system → LocalizationSystem implemented
+- QA/Release documentation → qa-test-plan.md, release-checklist.md created
+- Legal documentation → privacy-policy.md, user-agreement.md, age-rating.md created
+
+---
+
+## New Files Added (Sprint 011)
+
+| File | Purpose |
+|------|---------|
+| `src/core/ObjectPool.ts` | 通用对象池系统，减少 GC 压力 |
+| `src/core/LocalizationSystem.ts` | 多语言本地化系统 (zh-CN, en) |
+| `src/ui/AccessibilitySystem.ts` | 无障碍功能支持（文字缩放、色盲模式、高对比度） |
+| `tests/core/ObjectPool.test.ts` | ObjectPool 单元测试 |
+| `tests/core/LocalizationSystem.test.ts` | LocalizationSystem 单元测试 |
+| `tests/ui/AccessibilitySystem.test.ts` | AccessibilitySystem 单元测试 |
+| `production/qa/qa-test-plan.md` | QA 测试计划 (80+ test cases) |
+| `production/release/release-checklist.md` | 发布清单 |
+| `production/legal/privacy-policy.md` | 隐私政策 (中英双语) |
+| `production/legal/user-agreement.md` | 用户协议 (中英双语) |
+| `production/legal/age-rating.md` | 年龄分级说明 |
+| `production/legal/index.md` | 法律文档索引 |
+| `production/gate-checks/polish-to-release.md` | 门禁检查报告 |
+| `CHANGELOG.md` | 版本变更记录 |
