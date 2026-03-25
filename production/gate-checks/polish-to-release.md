@@ -7,7 +7,7 @@
 
 ---
 
-## Required Artifacts: 5/8 present (+3 since initial check)
+## Required Artifacts: 6/8 present (+4 since initial check)
 
 | Artifact | Status | Details |
 |----------|--------|---------|
@@ -22,7 +22,7 @@
 
 ---
 
-## Quality Checks: 3/8 passing (+1 since initial check)
+## Quality Checks: 4/8 passing (+2 since initial check)
 
 | Check | Status | Details |
 |-------|--------|---------|
@@ -32,7 +32,7 @@
 | No critical/high/medium bugs | ❓ Manual | Cannot verify automatically |
 | Accessibility basics covered | ✅ Pass | AccessibilitySystem implemented |
 | Localization verified | ✅ Fixed | LocalizationSystem with built-in strings |
-| Legal requirements met | ❌ Fail | No EULA, privacy policy, age ratings |
+| Legal requirements met | ✅ Fixed | EULA, privacy policy, age rating docs created |
 | Build compiles cleanly | ❓ Manual | Requires Cocos Creator runtime |
 
 ---
@@ -58,8 +58,11 @@ Sprint 011 T2 未完成。需要实际游玩测试并生成报告。
 - 发布清单已创建: `production/release/release-checklist.md`
 - CHANGELOG 已创建: `CHANGELOG.md`
 
-### 6. No Legal Documentation ⬜ PENDING
-缺少 EULA、隐私政策、年龄分级文档。
+### ~~6. No Legal Documentation~~ ✅ FIXED
+- 隐私政策: `production/legal/privacy-policy.md`
+- 用户协议: `production/legal/user-agreement.md`
+- 年龄分级: `production/legal/age-rating.md`
+- 法律文档索引: `production/legal/index.md`
 
 ---
 
@@ -73,13 +76,13 @@ Sprint 011 T2 未完成。需要实际游玩测试并生成报告。
 3. 创建 `assets/` 目录并添加游戏资源
 4. 运行 `/balance-check` 审查平衡数据
 5. 准备微信小店商店元数据 (截图、描述、关键词)
-6. 准备法律文档 (隐私政策、用户协议、年龄分级)
 
 ### Completed ✅
 - ~~运行 `/localize` 提取和外部化所有玩家可见字符串~~ → LocalizationSystem
 - ~~创建 `production/qa/qa-test-plan.md` 测试计划~~
 - ~~运行 `/release-checklist` 生成发布清单~~
 - ~~创建 `CHANGELOG.md` 或运行 `/changelog`~~
+- ~~准备法律文档 (隐私政策、用户协议、年龄分级)~~
 
 ---
 
@@ -87,16 +90,15 @@ Sprint 011 T2 未完成。需要实际游玩测试并生成报告。
 
 | Category | Initial | Current | Target |
 |----------|---------|---------|--------|
-| Required Artifacts | 2/8 | 5/8 | 8/8 |
-| Quality Checks | 2/8 | 3/8 | 8/8 |
-| Blockers Resolved | 0/6 | 2/6 | 6/6 |
+| Required Artifacts | 2/8 | 6/8 | 8/8 |
+| Quality Checks | 2/8 | 4/8 | 8/8 |
+| Blockers Resolved | 0/6 | 3/6 | 6/6 |
 
 ---
 
 ## Next Gate Check
 
 Re-run `/gate-check polish` after addressing the remaining blockers:
-- Performance baseline (T1)
-- Playtest report (T2)
-- Game assets
-- Legal documentation
+- Performance baseline (T1) - Requires Cocos Creator
+- Playtest report (T2) - Requires actual gameplay
+- Game assets - Requires art/audio resources
