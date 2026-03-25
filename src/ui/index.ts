@@ -27,3 +27,17 @@ export type {
     ButtonClickedPayload,
     ScrollEndPayload
 } from './UIFramework';
+
+// 无障碍系统
+export {
+    AccessibilitySystem,
+    TextScale,
+    ColorBlindMode,
+    HighContrastMode,
+    AccessibilityEvents,
+    accessibilitySystem
+} from './AccessibilitySystem';
+export type {
+    AccessibilitySettings,
+    AccessibilitySettingsChangedPayload
+} from './AccessibilitySystem';
