@@ -91,6 +91,9 @@ export class MooncakeMiniGame extends MiniGameBase {
     /** 正确的模具类型（随机生成） */
     private correctMold: MooncakeMoldType = MooncakeMoldType.ROUND;
 
+    /** 烘烤定时器 ID */
+    private bakingTimerId: ReturnType<typeof setTimeout> | null = null;
+
     /**
      * 获取所有阶段定义
      */
@@ -157,6 +160,12 @@ export class MooncakeMiniGame extends MiniGameBase {
      * 重置游戏
      */
     public reset(): void {
+        // 清理烘烤定时器
+        if (this.bakingTimerId !== null) {
+            clearTimeout(this.bakingTimerId);
+            this.bakingTimerId = null;
+        }
+
         super.reset();
         this.extraData = {};
         // 随机选择正确的模具
@@ -234,8 +243,15 @@ export class MooncakeMiniGame extends MiniGameBase {
         const stage = this.getCurrentStage();
         if (!stage || stage.id !== 'bake') return;
 
+        // 清理之前的定时器
+        if (this.bakingTimerId !== null) {
+            clearTimeout(this.bakingTimerId);
+            this.bakingTimerId = null;
+        }
+
         // 烘烤是自动完成的，设置定时器
-        setTimeout(() => {
+        this.bakingTimerId = setTimeout(() => {
+            this.bakingTimerId = null;
             if (this.getCurrentStage()?.id === 'bake') {
                 this.submitAction(1);
             }
