@@ -27,7 +27,7 @@
 
 | ID | Task | Est. Days | Dependencies | Acceptance Criteria | Status |
 |----|------|-----------|-------------|-------------------|--------|
-| T5 | 内存优化 | 1 | T1 | 内存使用 < 150MB | ⬜ Pending |
+| T5 | 内存优化 | 1 | T1 | 内存使用 < 150MB | 🔄 Partial (定时器清理) |
 | T6 | 对象池优化 | 0.5 | T1 | 减少GC压力 | ⬜ Pending |
 
 ### Nice to Have
@@ -35,7 +35,7 @@
 | ID | Task | Est. Days | Dependencies | Acceptance Criteria | Status |
 |----|------|-----------|-------------|-------------------|--------|
 | T7 | 无障碍功能 | 0.5 | — | 基础无障碍支持 | ⬜ Pending |
-| T8 | 错误处理增强 | 0.5 | — | 优雅降级 | ⬜ Pending |
+| T8 | 错误处理增强 | 0.5 | — | 优雅降级 | ✅ Done |
 
 ## Technical Debt
 
