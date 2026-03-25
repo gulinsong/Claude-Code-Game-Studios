@@ -28,7 +28,7 @@
 | ID | Task | Est. Days | Dependencies | Acceptance Criteria | Status |
 |----|------|-----------|-------------|-------------------|--------|
 | T5 | 内存优化 | 1 | T1 | 内存使用 < 150MB | 🔄 Partial (定时器清理) |
-| T6 | 对象池优化 | 0.5 | T1 | 减少GC压力 | ⬜ Pending |
+| T6 | 对象池优化 | 0.5 | T1 | 减少GC压力 | ✅ Done |
 
 ### Nice to Have
 
