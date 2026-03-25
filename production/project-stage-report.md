@@ -11,10 +11,10 @@
 | Domain | Completeness | Details |
 |--------|--------------|---------|
 | **Design** | 100% MVP | 18 GDD docs, 16/16 MVP systems designed |
-| **Code** | 100% MVP | 25 TypeScript files, ~10,876 LOC |
+| **Code** | 100% MVP | 27 TypeScript files, ~11,500 LOC |
 | **Architecture** | 53% | 16 ADRs (30 systems → 16 documented) |
-| **Production** | Active | Sprint 011 (Polish phase) in progress |
-| **Tests** | Excellent | 20 test files, ~7,840 LOC, 559+ tests passing |
+| **Production** | Active | Sprint 011 (Polish phase) T3-T8 done |
+| **Tests** | Excellent | 22 test files, ~8,200 LOC, 603 tests passing |
 | **Prototypes** | 1 | crafting-minigame (documented with README) |
 
 ---
@@ -57,11 +57,11 @@ Architecture:   ██████████░░░░░░░░░░  53
 
 | Metric | Value |
 |--------|-------|
-| Source files | 25 TypeScript files |
-| Source LOC | ~10,876 |
-| Test files | 20 |
-| Test LOC | ~7,840 |
-| Tests passing | 559+ |
+| Source files | 27 TypeScript files |
+| Source LOC | ~11,500 |
+| Test files | 22 |
+| Test LOC | ~8,200 |
+| Tests passing | 603 |
 | Directories | core/, data/, gameplay/, resource/, platform/, ui/ |
 | ADRs | 16 |
 | TODOs/FIXMEs | 0 ✅ |
@@ -140,10 +140,12 @@ Architecture:   ██████████░░░░░░░░░░  53
 | T2 | Playtest 报告 | ⬜ Pending |
 | T3 | 修复 TODOs | ✅ Done (0 TODOs remaining) |
 | T4 | 核心 ADR 补充 | ✅ Done (16 ADRs, 100% MVP covered) |
-| T5 | 内存优化 | ✅ Done |
-| T6 | 对象池优化 | ✅ Done |
-| T7 | 无障碍功能 | ✅ Done |
-| T8 | 错误处理增强 | ✅ Done |
+| T5 | 内存优化 | ✅ Done (Timer leak 修复, TimeSystem 验证) |
+| T6 | 对象池优化 | ✅ Done (ObjectPool + ObjectPoolManager) |
+| T7 | 无障碍功能 | ✅ Done (AccessibilitySystem) |
+| T8 | 错误处理增强 | ✅ Done (GatheringSystem, UIFramework) |
+
+**Sprint 011 代码层面任务全部完成** — T1, T2 需要在 Cocos Creator 运行时环境中执行。
 
 ---
 
@@ -151,20 +153,19 @@ Architecture:   ██████████░░░░░░░░░░  53
 
 ### Immediate (Sprint 011)
 
-1. **性能基准测试** — Run `/perf-profile` or test in Cocos Creator to establish baselines
-2. **Playtest** — Run `/playtest-report` to structure playtest feedback
-3. **内存/对象池优化** — Based on profiling results
+1. **性能基准测试** — 在 Cocos Creator 中运行游戏，使用 profiler 测量帧率、Draw Calls、内存、启动时间
+2. **Playtest** — 实际游玩测试后运行 `/playtest-report` 生成报告
 
 ### Short-term (Before Release)
 
-4. **运行 `/gate-check polish`** — Validate readiness for Release phase
-5. **叙事文档** — Decide if separate narrative docs are needed
+3. **运行 `/gate-check polish`** — Validate readiness for Release phase
+4. **叙事文档** — Decide if separate narrative docs are needed
 
 ### Future (Alpha/Beta)
 
-6. **Alpha 系统实现** — 11 systems planned
-7. **Beta 系统实现** — 3 systems planned
-8. **Alpha/Beta ADRs** — Document new systems as implemented
+5. **Alpha 系统实现** — 11 systems planned
+6. **Beta 系统实现** — 3 systems planned
+7. **Alpha/Beta ADRs** — Document new systems as implemented
 
 ---
 
@@ -181,7 +182,18 @@ Architecture:   ██████████░░░░░░░░░░  53
 
 | Sprint | Focus | Target | Status |
 |--------|-------|--------|--------|
-| 011 | 性能基准 + Playtest + ADR | 建立baseline | In Progress |
+| 011 | 性能基准 + Playtest + Polish | T3-T8 Done, T1-T2 Pending | 75% Complete |
 | 012 | 性能优化 | 达成目标 | Planned |
 | 013 | Bug修复 + Polish | 稳定性 | Planned |
 | 014 | Release准备 | 可发布状态 | Planned |
+
+---
+
+## New Files Added (Sprint 011)
+
+| File | Purpose |
+|------|---------|
+| `src/core/ObjectPool.ts` | 通用对象池系统，减少 GC 压力 |
+| `src/ui/AccessibilitySystem.ts` | 无障碍功能支持（文字缩放、色盲模式、高对比度） |
+| `tests/core/ObjectPool.test.ts` | ObjectPool 单元测试 |
+| `tests/ui/AccessibilitySystem.test.ts` | AccessibilitySystem 单元测试 |
