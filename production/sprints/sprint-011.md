@@ -34,7 +34,7 @@
 
 | ID | Task | Est. Days | Dependencies | Acceptance Criteria | Status |
 |----|------|-----------|-------------|-------------------|--------|
-| T7 | 无障碍功能 | 0.5 | — | 基础无障碍支持 | ⬜ Pending |
+| T7 | 无障碍功能 | 0.5 | — | 基础无障碍支持 | ✅ Done |
 | T8 | 错误处理增强 | 0.5 | — | 优雅降级 | ✅ Done |
 
 ## Technical Debt
