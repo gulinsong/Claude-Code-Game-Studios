@@ -39,3 +39,15 @@ export type {
     FestivalStartedPayload,
     FestivalEndedPayload
 } from './TimeSystem';
+
+// 对象池系统
+export {
+    ObjectPool,
+    ObjectPoolManager,
+    ObjectPoolEvents,
+    objectPoolManager
+} from './ObjectPool';
+export type {
+    ObjectPoolConfig,
+    ObjectPoolStats
+} from './ObjectPool';
