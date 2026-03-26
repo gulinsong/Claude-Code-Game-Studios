@@ -78,3 +78,19 @@ export type {
     PerformanceMonitorConfig,
     PerformanceWarningPayload
 } from './PerformanceMonitor';
+
+// 错误上报系统
+export {
+    ErrorReporter,
+    errorReporter,
+    ErrorLevel,
+    ErrorType,
+    ErrorReporterEvents
+} from './ErrorReporter';
+export type {
+    ErrorEvent,
+    DeviceInfo,
+    UserInfo,
+    Breadcrumb,
+    ErrorReporterConfig
+} from './ErrorReporter';
