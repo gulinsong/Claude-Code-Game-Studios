@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 默认面板 - 9-slice 格式 -->
+<!-- 中心区域 32x32，边框各 8px -->
+<svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect x="0" y="0" width="48" height="48" rx="4" fill="#F5E6D3"/>
+  <!-- 边框 -->
+  <rect x="0" y="0" width="48" height="48" rx="4" fill="none" stroke="#4A7C59" stroke-width="2"/>
+  <!-- 内部装饰线 -->
+  <rect x="8" y="8" width="32" height="32" rx="2" fill="none" stroke="#D4A574" stroke-width="1" stroke-dasharray="2,2"/>
+</svg>

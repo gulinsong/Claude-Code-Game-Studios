@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 月饼图标 -->
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- 月饼主体 -->
+  <ellipse cx="16" cy="18" rx="12" ry="10" fill="#D4A574"/>
+  <!-- 顶部花纹 -->
+  <ellipse cx="16" cy="14" rx="10" ry="8" fill="#C49A6C"/>
+  <!-- 中心图案 - 简化的花形 -->
+  <circle cx="16" cy="14" r="4" fill="#8B4513"/>
+  <!-- 装饰线条 -->
+  <path d="M10 14 Q16 10 22 14" fill="none" stroke="#8B4513" stroke-width="1"/>
+  <path d="M10 14 Q16 18 22 14" fill="none" stroke="#8B4513" stroke-width="1"/>
+  <!-- 描边 -->
+  <ellipse cx="16" cy="18" rx="12" ry="10" fill="none" stroke="#2D2D2D" stroke-width="2"/>
+</svg>

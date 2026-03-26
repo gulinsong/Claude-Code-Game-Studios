@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 玩家角色 - 待机帧 1 -->
+<!-- 建议使用 Aseprite 或 AI 工具转换为 32x32 像素 -->
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- 头部 -->
+  <rect x="10" y="2" width="12" height="10" rx="2" fill="#FFE4C4"/>
+  <!-- 头发 -->
+  <rect x="8" y="1" width="16" height="4" rx="1" fill="#4A3728"/>
+  <!-- 眼睛 -->
+  <rect x="12" y="6" width="3" height="3" rx="1" fill="#2D2D2D"/>
+  <rect x="17" y="6" width="3" height="3" rx="1" fill="#2D2D2D"/>
+  <!-- 身体 -->
+  <rect x="9" y="12" width="14" height="12" rx="2" fill="#4A7C59"/>
+  <!-- 手臂 -->
+  <rect x="5" y="14" width="4" height="8" rx="1" fill="#FFE4C4"/>
+  <rect x="23" y="14" width="4" height="8" rx="1" fill="#FFE4C4"/>
+  <!-- 腿部 -->
+  <rect x="10" y="24" width="5" height="6" rx="1" fill="#5D5D5D"/>
+  <rect x="17" y="24" width="5" height="6" rx="1" fill="#5D5D5D"/>
+  <!-- 描边 -->
+  <rect x="9" y="1" width="14" height="30" rx="3" fill="none" stroke="#2D2D2D" stroke-width="1"/>
+</svg>

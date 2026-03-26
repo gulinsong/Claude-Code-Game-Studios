@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 背包图标 -->
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背包主体 -->
+  <rect x="6" y="8" width="20" height="20" rx="3" fill="#D4A574"/>
+  <!-- 背包盖 -->
+  <rect x="8" y="6" width="16" height="8" rx="2" fill="#8B6914"/>
+  <!-- 扣子 -->
+  <circle cx="16" cy="16" r="3" fill="#4A7C59"/>
+  <!-- 描边 -->
+  <rect x="6" y="8" width="20" height="20" rx="3" fill="none" stroke="#2D2D2D" stroke-width="2"/>
+  <!-- 背带 -->
+  <path d="M8 8 Q6 4 10 4 Q14 4 12 8" fill="none" stroke="#2D2D2D" stroke-width="2"/>
+  <path d="M24 8 Q26 4 22 4 Q18 4 20 8" fill="none" stroke="#2D2D2D" stroke-width="2"/>
+</svg>

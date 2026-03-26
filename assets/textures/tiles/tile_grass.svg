@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 草地 Tile - 16x16 -->
+<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+  <!-- 基础草色 -->
+  <rect width="16" height="16" fill="#7CB342"/>
+  <!-- 草纹理 -->
+  <rect x="0" y="0" width="4" height="4" fill="#8BC34A"/>
+  <rect x="8" y="4" width="4" height="4" fill="#8BC34A"/>
+  <rect x="4" y="8" width="4" height="4" fill="#8BC34A"/>
+  <rect x="12" y="12" width="4" height="4" fill="#8BC34A"/>
+  <!-- 深色点缀 -->
+  <rect x="12" y="0" width="2" height="2" fill="#689F38"/>
+  <rect x="2" y="10" width="2" height="2" fill="#689F38"/>
+  <rect x="6" y="2" width="1" height="1" fill="#689F38"/>
+  <rect x="10" y="8" width="1" height="1" fill="#689F38"/>
+</svg>
