@@ -199,3 +199,20 @@ export type {
     TutorialSequenceState,
     TutorialSystemData
 } from './TutorialSystem';
+
+// 成就系统
+export {
+    AchievementSystem,
+    AchievementCategory,
+    AchievementRarity,
+    AchievementConditionType,
+    AchievementEvents,
+    createBasicAchievements
+} from './AchievementSystem';
+export type {
+    AchievementCondition,
+    AchievementReward,
+    AchievementDefinition,
+    AchievementProgress,
+    AchievementSystemData
+} from './AchievementSystem';
