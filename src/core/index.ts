@@ -94,3 +94,14 @@ export type {
     Breadcrumb,
     ErrorReporterConfig
 } from './ErrorReporter';
+
+// 存档迁移系统
+export {
+    SaveMigration,
+    registerBuiltInMigrations,
+    checkCompatibility
+} from './SaveMigration';
+export type {
+    MigrationResult,
+    CompatibilityInfo
+} from './SaveMigration';
