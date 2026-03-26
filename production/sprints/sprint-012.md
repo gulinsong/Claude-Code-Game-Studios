@@ -35,8 +35,8 @@
 
 | ID | Task | Est. Days | Dependencies | Acceptance Criteria | Status |
 |----|------|-----------|-------------|-------------------|--------|
-| T8 | 性能监控系统 | 0.5 | — | FPS/内存监控组件 | ⬜ Pending |
-| T9 | 错误上报系统 | 0.5 | — | 崩溃日志收集 | ⬜ Pending |
+| T8 | 性能监控系统 | 0.5 | — | FPS/内存监控组件 | ✅ Done |
+| T9 | 错误上报系统 | 0.5 | — | 崩溃日志收集 | ✅ Done |
 
 ## Technical Debt
 
@@ -81,11 +81,12 @@
 - [x] T3-T4 完成 (代码/配置层面)
 - [x] T5-T6 完成 (文档/设计层面)
 - [x] T7 完成 (商店元数据)
+- [x] T8-T9 完成 (监控系统)
 - [ ] 性能基准报告完成
 - [ ] 至少1次Playtest报告
 - [x] assets/ 目录结构创建
 - [x] design/balance/ 配置创建
-- [ ] 所有测试继续通过
+- [x] 所有测试继续通过
 
 ## Progress Log
 
@@ -122,6 +123,32 @@
   - 内存预算和监控
 
 **提交**: `a6cf7a6`, `eb74651`
+
+### 2026-03-26 - Sprint Day 3
+
+**计划任务**:
+- [x] T8 性能监控系统
+- [x] T9 错误上报系统
+
+**完成情况**:
+- T8: 创建 `src/core/PerformanceMonitor.ts`
+  - FPS 监控 (实时 + 平均/最小/最大)
+  - 内存监控 (微信小游戏 + Web)
+  - Draw Calls 和三角形计数
+  - 警告级别系统 (NORMAL, WARNING, CRITICAL)
+  - 可配置阈值和事件通知
+  - PerformanceOverlay 调试叠加层
+  - 19 个单元测试全部通过
+- T9: 创建 `src/core/ErrorReporter.ts`
+  - 全局错误捕获 (window.onerror, unhandledrejection)
+  - 微信小游戏适配 (wx.onError, wx.onUnhandledRejection, wx.onMemoryWarning)
+  - 面包屑系统 (操作历史追踪)
+  - 本地缓存和重试机制
+  - 采样率控制和忽略模式
+  - 设备信息自动收集
+  - 25 个单元测试全部通过
+
+**提交**: `8629f67`, `f867633`
 
 ---
 
@@ -192,6 +219,6 @@ design/balance/
 | Sprint | Focus | Target | Status |
 |--------|-------|--------|--------|
 | 011 | 性能基准 + Playtest + Release Prep | T3-T8 Done, T1-T2 Pending | 75% Complete |
-| 012 | 性能优化 + Assets + Balance | T3-T7 Done, T1-T2, T8-T9 Pending | 78% Complete |
+| 012 | 性能优化 + Assets + Balance + Monitoring | T3-T9 Done, T1-T2 Pending | 78% Complete |
 | 013 | Bug修复 + Polish | 稳定性 | Planned |
 | 014 | Release准备 | 可发布状态 | Planned |
