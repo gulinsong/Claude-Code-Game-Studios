@@ -27,7 +27,7 @@
 
 | ID | Task | Est. Days | Dependencies | Acceptance Criteria | Status |
 |----|------|-----------|-------------|-------------------|--------|
-| T5 | 存档迁移工具 | 0.5 | — | 版本升级存档迁移脚本 | ⬜ Pending |
+| T5 | 存档迁移工具 | 0.5 | — | 版本升级存档迁移脚本 | ✅ Done |
 | T6 | 性能优化实施 | 1 | T1 | 根据基准报告实施优化 | ⬜ Pending |
 | T7 | 可访问性检查 | 0.5 | — | WCAG 2.1 AA 合规检查 | ⬜ Pending |
 
@@ -87,10 +87,11 @@
 
 - [ ] T1-T2 完成 (需要 Cocos Creator 运行时)
 - [x] T3-T4 完成 (代码质量)
-- [ ] T5-T7 完成 (可选优化)
+- [x] T5 完成 (存档迁移工具)
+- [ ] T6-T7 完成 (可选优化)
 - [ ] 性能基准报告完成
 - [ ] 至少1次 Playtest 报告
-- [x] 所有测试继续通过 (670 tests)
+- [x] 所有测试继续通过 (705 tests)
 - [x] 代码审查完成
 - [ ] Gate Check 所有阻碍项解决
 
@@ -118,6 +119,23 @@
   - 详见: `docs/code-review/sprint-013-code-review.md`
 
 **提交**: `189962a`, `fa802eb`
+
+### 2026-03-26 - Sprint Day 2 (继续)
+
+**计划任务**:
+- [x] T5 存档迁移工具
+
+**完成情况**:
+- T5: 存档迁移工具 (SaveMigration)
+  - 版本解析和比较 (语义化版本)
+  - 迁移函数注册和执行
+  - 多步迁移路径查找
+  - 内置迁移: 1.0.0→1.1.0→1.2.0
+  - 版本兼容性检查
+  - 35 个单元测试, 95.19% 覆盖率
+  - 总测试数: 705 tests
+
+**提交**: `50c2564`
 
 ---
 
@@ -263,7 +281,7 @@
 |--------|-------|--------|--------|
 | 011 | 性能基准 + Playtest + Release Prep | T3-T8 Done, T1-T2 Pending | 75% Complete |
 | 012 | 性能优化 + Assets + Balance + Monitoring | T3-T9 Done, T1-T2 Pending | 78% Complete |
-| 013 | Bug修复 + Polish | T3-T4 Done, T1-T2 Pending | 22% Complete |
+| 013 | Bug修复 + Polish | T3-T5 Done, T1-T2 Pending | 33% Complete |
 | 014 | Release准备 | 可发布状态 | Planned |
 
 ---
