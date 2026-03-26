@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 地图图标 -->
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- 地图折叠 -->
+  <path d="M4 6 L12 4 L12 26 L4 28 Z" fill="#D4A574"/>
+  <path d="M12 4 L20 6 L20 28 L12 26 Z" fill="#C49A6C"/>
+  <path d="M20 6 L28 4 L28 26 L20 28 Z" fill="#D4A574"/>
+  <!-- 标记点 -->
+  <circle cx="16" cy="14" r="3" fill="#C75146"/>
+  <path d="M16 17 L16 22" stroke="#C75146" stroke-width="2"/>
+  <!-- 描边 -->
+  <path d="M4 6 L12 4 L20 6 L28 4 L28 26 L20 28 L12 26 L4 28 Z" fill="none" stroke="#2D2D2D" stroke-width="1"/>
+</svg>

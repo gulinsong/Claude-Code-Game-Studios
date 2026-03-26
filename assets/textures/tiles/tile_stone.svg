@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 石板 Tile - 16x16 -->
+<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+  <!-- 基础石板色 -->
+  <rect width="16" height="16" fill="#9E9E9E"/>
+  <!-- 石板纹理 -->
+  <rect x="0" y="0" width="8" height="8" fill="#BDBDBD"/>
+  <rect x="8" y="8" width="8" height="8" fill="#BDBDBD"/>
+  <!-- 裂缝 -->
+  <rect x="7" y="0" width="2" height="16" fill="#757575"/>
+  <rect x="0" y="7" width="16" height="2" fill="#757575"/>
+  <!-- 细节 -->
+  <rect x="2" y="2" width="2" height="2" fill="#E0E0E0"/>
+  <rect x="12" y="12" width="2" height="2" fill="#E0E0E0"/>
+</svg>

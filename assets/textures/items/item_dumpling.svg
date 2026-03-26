@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 饺子 -->
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- 饺子主体 -->
+  <path d="M4 16 Q8 8 16 8 Q24 8 28 16 Q24 24 16 26 Q8 24 4 16" fill="#FFF8E7"/>
+  <!-- 褶皱 -->
+  <path d="M10 10 L12 14 L10 12 L12 16 L10 14" fill="none" stroke="#E8D5B7" stroke-width="1"/>
+  <path d="M16 8 L16 12" stroke="#E8D5B7" stroke-width="1"/>
+  <path d="M22 10 L20 14 L22 12 L20 16 L22 14" fill="none" stroke="#E8D5B7" stroke-width="1"/>
+  <!-- 描边 -->
+  <path d="M4 16 Q8 8 16 8 Q24 8 28 16 Q24 24 16 26 Q8 24 4 16" fill="none" stroke="#C4B498" stroke-width="2"/>
+</svg>

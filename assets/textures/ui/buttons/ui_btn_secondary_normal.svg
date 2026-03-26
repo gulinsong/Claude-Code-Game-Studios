@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 次按钮 - 正常状态 -->
+<svg width="120" height="48" viewBox="0 0 120 48" xmlns="http://www.w3.org/2000/svg">
+  <!-- 按钮背景 -->
+  <rect x="0" y="0" width="120" height="48" rx="8" fill="#F5E6D3"/>
+  <!-- 描边 -->
+  <rect x="0" y="0" width="120" height="48" rx="8" fill="none" stroke="#D4A574" stroke-width="2"/>
+  <!-- 示例文字占位 -->
+  <text x="60" y="30" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#4A7C59">按钮</text>
+</svg>

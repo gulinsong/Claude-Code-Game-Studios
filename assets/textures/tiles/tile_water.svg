@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 水面 Tile - 16x16 -->
+<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+  <!-- 基础水色 -->
+  <rect width="16" height="16" fill="#4FC3F7"/>
+  <!-- 波纹 -->
+  <path d="M0 4 Q4 2 8 4 Q12 6 16 4" fill="none" stroke="#81D4FA" stroke-width="1"/>
+  <path d="M0 8 Q4 6 8 8 Q12 10 16 8" fill="none" stroke="#81D4FA" stroke-width="1"/>
+  <path d="M0 12 Q4 10 8 12 Q12 14 16 12" fill="none" stroke="#81D4FA" stroke-width="1"/>
+  <!-- 高光 -->
+  <rect x="2" y="2" width="3" height="1" rx="0.5" fill="rgba(255,255,255,0.5)"/>
+  <rect x="10" y="6" width="2" height="1" rx="0.5" fill="rgba(255,255,255,0.5)"/>
+</svg>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 村庄背景 - 冬季 (占位图) -->
+<svg width="320" height="180" viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">
+  <!-- 天空 (冬日灰蓝) -->
+  <rect width="320" height="100" fill="#B0BEC5"/>
+  <!-- 雪云 -->
+  <ellipse cx="60" cy="30" rx="35" ry="18" fill="#ECEFF1"/>
+  <ellipse cx="90" cy="25" rx="25" ry="15" fill="#ECEFF1"/>
+  <ellipse cx="250" cy="35" rx="30" ry="15" fill="#ECEFF1"/>
+  <!-- 远山 (雪覆盖) -->
+  <path d="M0 100 L60 60 L120 90 L180 50 L240 80 L320 70 L320 100 Z" fill="#CFD8DC"/>
+  <path d="M60 60 L80 50 L100 60" fill="#FFFFFF"/>
+  <path d="M180 50 L200 42 L220 50" fill="#FFFFFF"/>
+  <!-- 雪地 -->
+  <rect y="100" width="320" height="80" fill="#ECEFF1"/>
+  <!-- 雪堆纹理 -->
+  <ellipse cx="50" cy="150" rx="20" ry="8" fill="#FFFFFF"/>
+  <ellipse cx="270" cy="160" rx="25" ry="10" fill="#FFFFFF"/>
+  <!-- 枯树 -->
+  <rect x="40" y="80" width="10" height="50" fill="#5D4037"/>
+  <path d="M45 80 L35 60 M45 80 L55 65 M45 90 L30 85 M45 90 L60 88" stroke="#5D4037" stroke-width="3"/>
+  <!-- 雪覆盖的房屋 -->
+  <rect x="130" y="110" width="40" height="40" fill="#D4A574"/>
+  <path d="M125 110 L150 90 L175 110 Z" fill="#8B4513"/>
+  <path d="M120 110 L150 85 L180 110" fill="#FFFFFF"/>
+  <rect x="140" y="125" width="15" height="25" fill="#6B4423"/>
+  <!-- 烟囱冒烟 -->
+  <rect x="155" y="75" width="8" height="15" fill="#5D4037"/>
+  <ellipse cx="159" cy="70" rx="5" ry="3" fill="#B0BEC5"/>
+  <ellipse cx="159" cy="63" rx="4" ry="2" fill="#CFD8DC"/>
+  <!-- 雪花 -->
+  <circle cx="100" cy="50" r="2" fill="#FFFFFF"/>
+  <circle cx="150" cy="70" r="2" fill="#FFFFFF"/>
+  <circle cx="200" cy="45" r="2" fill="#FFFFFF"/>
+  <circle cx="280" cy="60" r="2" fill="#FFFFFF"/>
+  <circle cx="30" cy="80" r="2" fill="#FFFFFF"/>
+  <!-- 小路 (雪中) -->
+  <path d="M160 180 Q140 160 120 150 Q100 140 80 180" fill="#B0BEC5"/>
+  <!-- 文字标注 -->
+  <text x="160" y="170" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#546E7A">冬 - Winter</text>
+</svg>

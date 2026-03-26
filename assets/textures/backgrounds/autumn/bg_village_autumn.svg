@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 村庄背景 - 秋季 (占位图) -->
+<svg width="320" height="180" viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">
+  <!-- 天空 (夕阳色调) -->
+  <rect width="320" height="100" fill="#FFB74D"/>
+  <rect y="60" width="320" height="40" fill="#FF8A65"/>
+  <!-- 太阳 (夕阳) -->
+  <circle cx="160" cy="80" r="25" fill="#FFC107"/>
+  <!-- 远山 -->
+  <path d="M0 100 L60 60 L120 90 L180 50 L240 80 L320 70 L320 100 Z" fill="#D4A574"/>
+  <!-- 草地 (秋黄) -->
+  <rect y="100" width="320" height="80" fill="#C49A6C"/>
+  <!-- 银杏树 -->
+  <rect x="40" y="80" width="10" height="50" fill="#5D4037"/>
+  <polygon points="45,40 25,70 65,70" fill="#FFD54F"/>
+  <polygon points="45,50 30,75 60,75" fill="#FFC107"/>
+  <!-- 枫树 -->
+  <rect x="250" y="75" width="12" height="55" fill="#5D4037"/>
+  <circle cx="256" cy="60" r="25" fill="#E65100"/>
+  <circle cx="268" cy="50" r="20" fill="#F57C00"/>
+  <circle cx="244" cy="55" r="18" fill="#E65100"/>
+  <!-- 房屋 -->
+  <rect x="130" y="110" width="40" height="40" fill="#D4A574"/>
+  <path d="M125 110 L150 90 L175 110 Z" fill="#8B4513"/>
+  <rect x="140" y="125" width="15" height="25" fill="#6B4423"/>
+  <!-- 落叶 -->
+  <circle cx="100" cy="120" r="3" fill="#FFC107"/>
+  <circle cx="200" cy="140" r="3" fill="#E65100"/>
+  <circle cx="80" cy="150" r="2" fill="#FFD54F"/>
+  <circle cx="240" cy="130" r="3" fill="#F57C00"/>
+  <!-- 小路 -->
+  <path d="M160 180 Q140 160 120 150 Q100 140 80 180" fill="#8B7355"/>
+  <!-- 文字标注 -->
+  <text x="160" y="170" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#5D4037">秋 - Autumn</text>
+</svg>

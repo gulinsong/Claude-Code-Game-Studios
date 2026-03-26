@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 提示框面板 -->
+<svg width="160" height="64" viewBox="0 0 160 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect x="0" y="0" width="160" height="56" rx="6" fill="#2D2D2D"/>
+  <!-- 文字占位 -->
+  <text x="12" y="24" font-family="sans-serif" font-size="12" fill="#FFFFFF">提示文字</text>
+  <text x="12" y="40" font-family="sans-serif" font-size="10" fill="#AAAAAA">详细说明</text>
+  <!-- 小箭头 -->
+  <polygon points="72,56 88,56 80,64" fill="#2D2D2D"/>
+</svg>

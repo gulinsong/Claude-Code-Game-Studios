@@ -42,22 +42,22 @@
 
 | ID | 资源 | 尺寸 | 状态 | 来源 |
 | -- | ---- | ---- | ---- | ---- |
-| item_bamboo | 竹子 | 32x32 | ⬜ | AI/Kenney |
-| item_paper | 纸张 | 32x32 | ⬜ | AI/Kenney |
-| item_flower | 花朵 | 32x32 | ⬜ | AI/Kenney |
-| item_herb | 草药 | 32x32 | ⬜ | AI/Kenney |
-| item_wood | 木材 | 32x32 | ⬜ | AI/Kenney |
-| item_stone | 石头 | 32x32 | ⬜ | AI/Kenney |
+| item_bamboo | 竹子 | 32x32 | ✅ | SVG 占位 |
+| item_paper | 纸张 | 32x32 | ✅ | SVG 占位 |
+| item_flower | 花朵 | 32x32 | ✅ | SVG 占位 |
+| item_herb | 草药 | 32x32 | ✅ | SVG 占位 |
+| item_wood | 木材 | 32x32 | ✅ | SVG 占位 |
+| item_stone | 石头 | 32x32 | ✅ | SVG 占位 |
 
 ### 食物类 (P0)
 
 | ID | 资源 | 尺寸 | 状态 | 来源 |
 | -- | ---- | ---- | ---- | ---- |
-| item_mooncake | 月饼 | 32x32 | ⬜ | AI |
-| item_zongzi | 粽子 | 32x32 | ⬜ | AI |
-| item_qingtuan | 青团 | 32x32 | ⬜ | AI |
-| item_dumpling | 饺子 | 32x32 | ⬜ | AI |
-| item_tangyuan | 汤圆 | 32x32 | ⬜ | AI |
+| item_mooncake | 月饼 | 32x32 | ✅ | SVG 占位 |
+| item_zongzi | 粽子 | 32x32 | ✅ | SVG 占位 |
+| item_qingtuan | 青团 | 32x32 | ✅ | SVG 占位 |
+| item_dumpling | 饺子 | 32x32 | ✅ | SVG 占位 |
+| item_tangyuan | 汤圆 | 32x32 | ✅ | SVG 占位 |
 
 ### 工具类 (P1)
 
@@ -76,10 +76,10 @@
 
 | ID | 资源 | 尺寸 | 状态 | 来源 |
 | -- | ---- | ---- | ---- | ---- |
-| tile_grass | 草地 | 16x16 | ⬜ | Kronbits |
-| tile_path | 小路 | 16x16 | ⬜ | Kronbits |
-| tile_stone | 石板 | 16x16 | ⬜ | Kronbits |
-| tile_water | 水面 | 16x16 | ⬜ | Kronbits |
+| tile_grass | 草地 | 16x16 | ✅ | SVG 占位 |
+| tile_path | 小路 | 16x16 | ✅ | SVG 占位 |
+| tile_stone | 石板 | 16x16 | ✅ | SVG 占位 |
+| tile_water | 水面 | 16x16 | ✅ | SVG 占位 |
 
 ### 建筑 (P1)
 
@@ -104,10 +104,10 @@
 
 | ID | 资源 | 尺寸 | 状态 | 来源 |
 | -- | ---- | ---- | ---- | ---- |
-| bg_village_spring | 村庄-春 | 1280x720 | ⬜ | AI |
-| bg_village_summer | 村庄-夏 | 1280x720 | ⬜ | AI |
-| bg_village_autumn | 村庄-秋 | 1280x720 | ⬜ | AI |
-| bg_village_winter | 村庄-冬 | 1280x720 | ⬜ | AI |
+| bg_village_spring | 村庄-春 | 1280x720 | ✅ | SVG 占位 |
+| bg_village_summer | 村庄-夏 | 1280x720 | ✅ | SVG 占位 |
+| bg_village_autumn | 村庄-秋 | 1280x720 | ✅ | SVG 占位 |
+| bg_village_winter | 村庄-冬 | 1280x720 | ✅ | SVG 占位 |
 
 ---
 
@@ -117,28 +117,28 @@
 
 | ID | 资源 | 尺寸 | 状态 | 来源 |
 | -- | ---- | ---- | ---- | ---- |
-| ui_btn_primary | 主按钮 (3态) | 120x48 | ⬜ | 自制 |
-| ui_btn_secondary | 次按钮 (3态) | 120x48 | ⬜ | 自制 |
-| ui_btn_icon | 图标按钮 | 48x48 | ⬜ | 自制 |
-| ui_btn_close | 关闭按钮 | 32x32 | ⬜ | Kenney |
+| ui_btn_primary | 主按钮 (3态) | 120x48 | ✅ | SVG 占位 |
+| ui_btn_secondary | 次按钮 (3态) | 120x48 | ✅ | SVG 占位 |
+| ui_btn_icon | 图标按钮 | 48x48 | ⬜ | 待创建 |
+| ui_btn_close | 关闭按钮 | 32x32 | ✅ | SVG 占位 |
 
 ### 面板 (P0)
 
 | ID | 资源 | 尺寸 | 状态 | 来源 |
 | -- | ---- | ---- | ---- | ---- |
-| ui_panel_default | 默认面板 | 9-slice | ⬜ | 自制 |
-| ui_panel_dialog | 对话框 | 9-slice | ⬜ | 自制 |
-| ui_panel_tooltip | 提示框 | 9-slice | ⬜ | 自制 |
+| ui_panel_default | 默认面板 | 9-slice | ✅ | SVG 占位 |
+| ui_panel_dialog | 对话框 | 9-slice | ✅ | SVG 占位 |
+| ui_panel_tooltip | 提示框 | 9-slice | ✅ | SVG 占位 |
 
 ### 图标 (P0)
 
 | ID | 资源 | 尺寸 | 状态 | 来源 |
 | -- | ---- | ---- | ---- | ---- |
-| ui_icon_settings | 设置 | 32x32 | ⬜ | Kenney |
-| ui_icon_backpack | 背包 | 32x32 | ⬜ | Kenney |
-| ui_icon_map | 地图 | 32x32 | ⬜ | Kenney |
-| ui_icon_mail | 邮件 | 32x32 | ⬜ | Kenney |
-| ui_icon_home | 主页 | 32x32 | ⬜ | Kenney |
+| ui_icon_settings | 设置 | 32x32 | ✅ | SVG 占位 |
+| ui_icon_backpack | 背包 | 32x32 | ✅ | SVG 占位 |
+| ui_icon_map | 地图 | 32x32 | ✅ | SVG 占位 |
+| ui_icon_mail | 邮件 | 32x32 | ✅ | SVG 占位 |
+| ui_icon_home | 主页 | 32x32 | ✅ | SVG 占位 |
 
 ### 进度条 (P1)
 
@@ -178,11 +178,13 @@
 
 | ID | 资源 | 时长 | 状态 | 来源 |
 | -- | ---- | ---- | ---- | ---- |
-| sfx_click | 点击 | <0.5s | ⬜ | Freesound |
-| sfx_collect | 收集 | <0.5s | ⬜ | Freesound |
-| sfx_craft | 制作 | <1s | ⬜ | Freesound |
-| sfx_success | 成功 | <0.5s | ⬜ | Freesound |
-| sfx_error | 错误 | <0.5s | ⬜ | Freesound |
+| sfx_click | 点击 | <0.5s | ⬜ | 待下载 (Freesound) |
+| sfx_collect | 收集 | <0.5s | ⬜ | 待下载 (Freesound) |
+| sfx_craft | 制作 | <1s | ⬜ | 待下载 (Freesound) |
+| sfx_success | 成功 | <0.5s | ⬜ | 待下载 (Freesound) |
+| sfx_error | 错误 | <0.5s | ⬜ | 待下载 (Freesound) |
+
+> **注**: 音效文件需手动从 Freesound 或其他来源下载。详见 `assets/audio/sfx/README.md`
 
 ---
 

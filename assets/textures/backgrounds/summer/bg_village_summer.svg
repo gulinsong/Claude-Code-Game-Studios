@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 村庄背景 - 夏季 (占位图) -->
+<svg width="320" height="180" viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">
+  <!-- 天空 -->
+  <rect width="320" height="100" fill="#4FC3F7"/>
+  <!-- 太阳 -->
+  <circle cx="280" cy="30" r="20" fill="#FFD93D"/>
+  <!-- 云朵 -->
+  <ellipse cx="80" cy="35" rx="25" ry="12" fill="#FFFFFF"/>
+  <ellipse cx="180" cy="25" rx="20" ry="10" fill="#FFFFFF"/>
+  <!-- 远山 -->
+  <path d="M0 100 L60 60 L120 90 L180 50 L240 80 L320 70 L320 100 Z" fill="#4CAF50"/>
+  <!-- 草地 -->
+  <rect y="100" width="320" height="80" fill="#388E3C"/>
+  <!-- 荷花池 -->
+  <ellipse cx="60" cy="140" rx="40" ry="25" fill="#4FC3F7"/>
+  <circle cx="45" cy="135" r="8" fill="#E91E63"/>
+  <circle cx="70" cy="142" r="6" fill="#F8BBD9"/>
+  <!-- 大树 (夏季浓绿) -->
+  <rect x="220" y="80" width="12" height="50" fill="#8B4513"/>
+  <circle cx="226" cy="65" r="30" fill="#2E7D32"/>
+  <circle cx="240" cy="55" r="25" fill="#388E3C"/>
+  <circle cx="212" cy="60" r="22" fill="#2E7D32"/>
+  <!-- 房屋 -->
+  <rect x="140" y="110" width="40" height="40" fill="#D4A574"/>
+  <path d="M135 110 L160 90 L185 110 Z" fill="#8B4513"/>
+  <rect x="150" y="125" width="15" height="25" fill="#6B4423"/>
+  <!-- 小路 -->
+  <path d="M160 180 Q140 160 120 150 Q100 140 80 180" fill="#A0896C"/>
+  <!-- 文字标注 -->
+  <text x="160" y="170" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#FFFFFF">夏 - Summer</text>
+</svg>

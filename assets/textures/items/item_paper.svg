@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 纸张材料 -->
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- 纸张主体 -->
+  <rect x="4" y="4" width="20" height="24" rx="1" fill="#FFF8E7"/>
+  <!-- 折角 -->
+  <path d="M20 4 L24 4 L24 8 L20 8 Z" fill="#F5E6D3"/>
+  <path d="M20 4 L20 8 L24 8 Z" fill="#E8D5B7"/>
+  <!-- 文字线条 -->
+  <rect x="8" y="12" width="12" height="2" fill="#D4C4A8"/>
+  <rect x="8" y="16" width="10" height="2" fill="#D4C4A8"/>
+  <rect x="8" y="20" width="8" height="2" fill="#D4C4A8"/>
+  <!-- 描边 -->
+  <rect x="4" y="4" width="20" height="24" rx="1" fill="none" stroke="#C4B498" stroke-width="1"/>
+</svg>

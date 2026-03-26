@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 石头材料 -->
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- 石头主体 -->
+  <path d="M6 20 L8 10 L16 6 L24 10 L26 20 L22 26 L10 26 Z" fill="#9E9E9E"/>
+  <!-- 高光 -->
+  <path d="M10 12 L14 8 L18 10 L14 14 Z" fill="rgba(255,255,255,0.3)"/>
+  <!-- 阴影纹理 -->
+  <path d="M12 22 L20 22 L22 18 L10 18 Z" fill="#757575"/>
+  <!-- 描边 -->
+  <path d="M6 20 L8 10 L16 6 L24 10 L26 20 L22 26 L10 26 Z" fill="none" stroke="#616161" stroke-width="2"/>
+</svg>
