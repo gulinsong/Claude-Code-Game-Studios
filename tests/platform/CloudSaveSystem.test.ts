@@ -134,7 +134,14 @@ describe('CloudSaveSystem', () => {
     });
 
     afterEach(() => {
+        // 停止自动存档
         saveSystem.stopAutoSave();
+
+        // 重置存档系统
+        saveSystem.reset();
+
+        // 清除所有事件监听器
+        eventSystem.clearAll();
     });
 
     describe('初始状态', () => {

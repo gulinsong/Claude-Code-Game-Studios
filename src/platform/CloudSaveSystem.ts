@@ -359,19 +359,34 @@ export class CloudSaveSystem implements ICloudSaveSystem {
         // 发布存档开始事件
         EventSystem.getInstance().emit<SaveStartedPayload>(CloudSaveEvents.SAVE_STARTED, { type });
 
+        // 超时定时器 ID
+        let timeoutId: ReturnType<typeof setTimeout> | null = null;
+
         try {
             // 设置超时
             const timeoutPromise = new Promise<never>((_, reject) => {
-                setTimeout(() => reject(new Error('存档超时')), SAVE_CONFIG.SAVE_TIMEOUT);
+                timeoutId = setTimeout(() => reject(new Error('存档超时')), SAVE_CONFIG.SAVE_TIMEOUT);
             });
 
             const savePromise = this.performSave(type);
 
             await Promise.race([savePromise, timeoutPromise]);
 
+            // 清除超时定时器
+            if (timeoutId !== null) {
+                clearTimeout(timeoutId);
+                timeoutId = null;
+            }
+
             this.state = CloudSaveState.IDLE;
             return true;
         } catch (error) {
+            // 清除超时定时器
+            if (timeoutId !== null) {
+                clearTimeout(timeoutId);
+                timeoutId = null;
+            }
+
             const errorMessage = error instanceof Error ? error.message : '存档失败';
 
             this.state = CloudSaveState.IDLE;
@@ -395,19 +410,34 @@ export class CloudSaveSystem implements ICloudSaveSystem {
         // 发布读档开始事件
         EventSystem.getInstance().emit<LoadStartedPayload>(CloudSaveEvents.LOAD_STARTED, {});
 
+        // 超时定时器 ID
+        let timeoutId: ReturnType<typeof setTimeout> | null = null;
+
         try {
             // 设置超时
             const timeoutPromise = new Promise<never>((_, reject) => {
-                setTimeout(() => reject(new Error('读档超时')), SAVE_CONFIG.SAVE_TIMEOUT);
+                timeoutId = setTimeout(() => reject(new Error('读档超时')), SAVE_CONFIG.SAVE_TIMEOUT);
             });
 
             const loadPromise = this.performLoad();
 
             const data = await Promise.race([loadPromise, timeoutPromise]);
 
+            // 清除超时定时器
+            if (timeoutId !== null) {
+                clearTimeout(timeoutId);
+                timeoutId = null;
+            }
+
             this.state = CloudSaveState.IDLE;
             return data;
         } catch (error) {
+            // 清除超时定时器
+            if (timeoutId !== null) {
+                clearTimeout(timeoutId);
+                timeoutId = null;
+            }
+
             const errorMessage = error instanceof Error ? error.message : '读档失败';
 
             this.state = CloudSaveState.IDLE;
