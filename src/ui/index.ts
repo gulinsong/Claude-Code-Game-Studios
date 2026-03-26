@@ -56,3 +56,20 @@ export type {
     ScrollInfo,
     VirtualListMetrics
 } from './VirtualList';
+
+// WCAG 可访问性检查器
+export {
+    AccessibilityChecker,
+    WCAGLevel,
+    CheckSeverity,
+    checkContrast,
+    checkTouchTarget
+} from './AccessibilityChecker';
+export type {
+    CheckResult,
+    ColorContrastResult,
+    TouchTargetSize,
+    ComponentAccessibilityConfig,
+    ComponentCheckResult,
+    AccessibilityReport
+} from './AccessibilityChecker';
