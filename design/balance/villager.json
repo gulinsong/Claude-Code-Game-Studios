@@ -1,0 +1,106 @@
+{
+  "$schema": "./schemas/villager.schema.json",
+  "version": "1.0.0",
+  "description": "村民好感度系统配置 - 好感度来源、NPC定义",
+
+  "friendshipRange": { "min": 0, "max": 100 },
+
+  "relationshipLevels": [
+    { "level": 1, "name": "陌生人", "minFriendship": 0, "maxFriendship": 0 },
+    { "level": 2, "name": "认识", "minFriendship": 1, "maxFriendship": 19 },
+    { "level": 3, "name": "朋友", "minFriendship": 20, "maxFriendship": 39 },
+    { "level": 4, "name": "好友", "minFriendship": 40, "maxFriendship": 59 },
+    { "level": 5, "name": "挚友", "minFriendship": 60, "maxFriendship": 100 }
+  ],
+
+  "friendshipSources": {
+    "giftLike": 10,
+    "giftNormal": 5,
+    "giftDislike": -5,
+    "dailyFirstTalk": 2,
+    "questComplete": { "min": 5, "max": 15 },
+    "festivalInteraction": { "min": 3, "max": 10 }
+  },
+
+  "giftRepeatPenalty": {
+    "enabled": true,
+    "decayRate": 0.5,
+    "resetDays": 7
+  },
+
+  "villagers": [
+    {
+      "id": "lihua",
+      "name": "李花",
+      "avatar": "textures/characters/lihua",
+      "personality": "GENTLE",
+      "location": "village",
+      "likes": ["flower", "tea", "silk"],
+      "dislikes": ["meat", "alcohol"],
+      "lore": "村里的花匠，温柔善良，热爱花卉种植。",
+      "dialogues": ["lihua_intro", "lihua_friend", "lihua_close"],
+      "quests": ["help_garden", "flower_festival"]
+    },
+    {
+      "id": "zhangwei",
+      "name": "张伟",
+      "avatar": "textures/characters/zhangwei",
+      "personality": "ENTHUSIASTIC",
+      "location": "village",
+      "likes": ["meat", "wine", "tool"],
+      "dislikes": ["flower", "cosmetic"],
+      "lore": "村里的铁匠，性格开朗，乐于助人。",
+      "dialogues": ["zhangwei_intro", "zhangwei_friend", "zhangwei_close"],
+      "quests": ["repair_tools", "iron_order"]
+    },
+    {
+      "id": "meiling",
+      "name": "美玲",
+      "avatar": "textures/characters/meiling",
+      "personality": "INTROVERTED",
+      "location": "village",
+      "likes": ["book", "tea", "music"],
+      "dislikes": ["loud_item", "spicy_food"],
+      "lore": "村里的书生，性格内向，喜欢安静。",
+      "dialogues": ["meiling_intro", "meiling_friend", "meiling_close"],
+      "quests": ["find_book", "poetry_help"]
+    },
+    {
+      "id": "oldchen",
+      "name": "陈老伯",
+      "avatar": "textures/characters/oldchen",
+      "personality": "TRADITIONAL",
+      "location": "village",
+      "likes": ["tea", "tobacco", "traditional_item"],
+      "dislikes": ["modern_item", "noisy_toy"],
+      "lore": "村里的长者，博学多识，通晓传统文化。",
+      "dialogues": ["oldchen_intro", "oldchen_friend", "oldchen_close"],
+      "quests": ["listen_story", "festival_preparation"]
+    },
+    {
+      "id": "xiaoming",
+      "name": "小明",
+      "avatar": "textures/characters/xiaoming",
+      "personality": "PLAYFUL",
+      "location": "village",
+      "likes": ["toy", "candy", "kite"],
+      "dislikes": ["vegetable", "medicine"],
+      "lore": "村里的小孩，活泼可爱，喜欢玩耍。",
+      "dialogues": ["xiaoming_intro", "xiaoming_friend", "xiaoming_close"],
+      "quests": ["play_game", "find_pet"]
+    }
+  ],
+
+  "personalities": {
+    "GENTLE": { "reactionMultiplier": 1.0, "description": "温和 - 友善、耐心" },
+    "ENTHUSIASTIC": { "reactionMultiplier": 1.5, "description": "热情 - 开朗、活泼，反应更夸张" },
+    "INTROVERTED": { "reactionMultiplier": 0.8, "description": "内向 - 害羞、细腻，反应较含蓄" },
+    "TRADITIONAL": { "reactionMultiplier": 1.0, "description": "古板 - 严肃、传统" },
+    "PLAYFUL": { "reactionMultiplier": 1.2, "description": "顽皮 - 调皮、爱玩" }
+  },
+
+  "notes": {
+    "giftRepeatPenalty": "同一礼物多次赠送效果递减，7天后重置",
+    "reactionMultiplier": "性格影响礼物反应的强度，热情型反应更夸张"
+  }
+}

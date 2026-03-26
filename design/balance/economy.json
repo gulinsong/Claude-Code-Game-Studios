@@ -1,0 +1,54 @@
+{
+  "$schema": "./schemas/economy.schema.json",
+  "version": "1.0.0",
+  "description": "经济系统配置 - 货币、定价、奖励",
+
+  "currency": {
+    "id": "coins",
+    "name": "铜钱",
+    "initialAmount": 100,
+    "maxAmount": 99999
+  },
+
+  "pricing": {
+    "materials": {
+      "common": { "min": 5, "max": 20 },
+      "rare": { "min": 30, "max": 80 },
+      "legendary": { "min": 100, "max": 300 }
+    },
+    "food": {
+      "common": { "min": 10, "max": 30 },
+      "rare": { "min": 50, "max": 150 }
+    },
+    "decorations": {
+      "common": { "min": 20, "max": 60 },
+      "rare": { "min": 100, "max": 300 }
+    }
+  },
+
+  "sellMultiplier": 0.5,
+
+  "dailyRewards": {
+    "login": {
+      "day1": 50,
+      "day2": 50,
+      "day3": 100,
+      "day4": 100,
+      "day5": 150,
+      "day6": 150,
+      "day7": 300
+    }
+  },
+
+  "questRewards": {
+    "main": { "coins": { "min": 100, "max": 300 } },
+    "side": { "coins": { "min": 30, "max": 100 } },
+    "daily": { "coins": { "min": 20, "max": 50 } }
+  },
+
+  "notes": {
+    "sellMultiplier": "出售价格为购买价格的 50%",
+    "dailyRewards": "7 天循环，第 7 天为大奖",
+    "questRewards": "主线任务奖励最高，支线次之，日常最低"
+  }
+}

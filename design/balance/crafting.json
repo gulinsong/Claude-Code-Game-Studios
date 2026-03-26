@@ -1,0 +1,126 @@
+{
+  "$schema": "./schemas/crafting.schema.json",
+  "version": "1.0.0",
+  "description": "手工艺/配方配置 - 输入、输出、制作时间",
+
+  "globalCraftTimeMultiplier": 1.0,
+
+  "recipes": [
+    {
+      "id": "mooncake",
+      "name": "月饼",
+      "description": "中秋节的传统美食，象征着团圆。",
+      "lore": "月饼始于唐代，相传是唐高祖李渊与群臣欢度中秋时...",
+      "rarity": "COMMON",
+      "category": "FOOD",
+      "inputs": [
+        { "materialId": "flour", "amount": 2, "optional": false },
+        { "materialId": "lotus_seed", "amount": 1, "optional": false },
+        { "materialId": "sugar", "amount": 1, "optional": false },
+        { "materialId": "egg_yolk", "amount": 1, "optional": true }
+      ],
+      "output": {
+        "itemId": "mooncake",
+        "amount": 1,
+        "itemIdQuality": "mooncake_premium"
+      },
+      "craftTime": 30,
+      "staminaCost": 10,
+      "unlockCondition": "festival:zhongqiu:preparation"
+    },
+    {
+      "id": "zongzi",
+      "name": "粽子",
+      "description": "端午节的传统美食，用竹叶包裹糯米制成。",
+      "lore": "粽子起源于纪念爱国诗人屈原，人们将米团投入江中...",
+      "rarity": "COMMON",
+      "category": "FOOD",
+      "inputs": [
+        { "materialId": "bamboo_leaf", "amount": 2, "optional": false },
+        { "materialId": "rice", "amount": 2, "optional": false },
+        { "materialId": "reed", "amount": 1, "optional": false },
+        { "materialId": "red_bean", "amount": 1, "optional": true }
+      ],
+      "output": {
+        "itemId": "zongzi",
+        "amount": 2,
+        "itemIdQuality": "zongzi_premium"
+      },
+      "craftTime": 25,
+      "staminaCost": 10,
+      "unlockCondition": "festival:duanwu:preparation"
+    },
+    {
+      "id": "lantern",
+      "name": "灯笼",
+      "description": "传统手工艺品，节日庆典必备。",
+      "lore": "灯笼是中华文化的象征，代表着光明和希望...",
+      "rarity": "RARE",
+      "category": "DECORATION",
+      "inputs": [
+        { "materialId": "bamboo", "amount": 3, "optional": false },
+        { "materialId": "paper", "amount": 2, "optional": false },
+        { "materialId": "candle", "amount": 1, "optional": false },
+        { "materialId": "tassel", "amount": 1, "optional": true }
+      ],
+      "output": {
+        "itemId": "lantern",
+        "amount": 1,
+        "itemIdQuality": "lantern_premium"
+      },
+      "craftTime": 60,
+      "staminaCost": 15,
+      "unlockCondition": "complete_quest:lantern_making"
+    },
+    {
+      "id": "qingtuan",
+      "name": "青团",
+      "description": "清明节的传统点心，用艾草汁染绿的糯米团。",
+      "lore": "青团是江南地区的清明传统食品...",
+      "rarity": "COMMON",
+      "category": "FOOD",
+      "inputs": [
+        { "materialId": "rice", "amount": 2, "optional": false },
+        { "materialId": "herb", "amount": 2, "optional": false },
+        { "materialId": "sugar", "amount": 1, "optional": false },
+        { "materialId": "red_bean", "amount": 1, "optional": true }
+      ],
+      "output": {
+        "itemId": "qingtuan",
+        "amount": 2,
+        "itemIdQuality": "qingtuan_premium"
+      },
+      "craftTime": 20,
+      "staminaCost": 8,
+      "unlockCondition": "festival:qingming:preparation"
+    },
+    {
+      "id": "dumpling",
+      "name": "饺子",
+      "description": "春节必备的传统美食，象征着团圆和财运。",
+      "lore": "饺子形似元宝，吃饺子象征着招财进宝...",
+      "rarity": "COMMON",
+      "category": "FOOD",
+      "inputs": [
+        { "materialId": "flour", "amount": 2, "optional": false },
+        { "materialId": "meat", "amount": 1, "optional": false },
+        { "materialId": "vegetable", "amount": 1, "optional": false },
+        { "materialId": "coin", "amount": 1, "optional": true }
+      ],
+      "output": {
+        "itemId": "dumpling",
+        "amount": 3,
+        "itemIdQuality": "dumpling_premium"
+      },
+      "craftTime": 35,
+      "staminaCost": 12,
+      "unlockCondition": "festival:chunjie:preparation"
+    }
+  ],
+
+  "notes": {
+    "optional": "可选材料影响品质，有可选材料时产出高品质版本",
+    "craftTime": "制作时间，单位为秒",
+    "itemIdQuality": "高品质版本物品ID，可选材料满足时产出"
+  }
+}

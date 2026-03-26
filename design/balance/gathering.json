@@ -1,0 +1,145 @@
+{
+  "$schema": "./schemas/gathering.schema.json",
+  "version": "1.0.0",
+  "description": "采集点配置 - 产出、冷却、体力消耗",
+
+  "globalCooldownMultiplier": 1.0,
+
+  "spots": [
+    {
+      "id": "village_garden",
+      "name": "村口花园",
+      "locationId": "village",
+      "cooldown": 1800,
+      "staminaCost": 5,
+      "unlockCondition": "none",
+      "materials": [
+        {
+          "materialId": "herb",
+          "weight": 50,
+          "minAmount": 1,
+          "maxAmount": 3,
+          "seasonRestriction": [],
+          "timeRestriction": []
+        },
+        {
+          "materialId": "flower",
+          "weight": 30,
+          "minAmount": 1,
+          "maxAmount": 2,
+          "seasonRestriction": [],
+          "timeRestriction": []
+        },
+        {
+          "materialId": "rare_herb",
+          "weight": 20,
+          "minAmount": 1,
+          "maxAmount": 1,
+          "seasonRestriction": ["SPRING", "SUMMER"],
+          "timeRestriction": []
+        }
+      ]
+    },
+    {
+      "id": "bamboo_forest",
+      "name": "竹林",
+      "locationId": "forest",
+      "cooldown": 3600,
+      "staminaCost": 8,
+      "unlockCondition": "complete_quest:explore_forest",
+      "materials": [
+        {
+          "materialId": "bamboo",
+          "weight": 60,
+          "minAmount": 2,
+          "maxAmount": 5,
+          "seasonRestriction": [],
+          "timeRestriction": []
+        },
+        {
+          "materialId": "bamboo_shoot",
+          "weight": 40,
+          "minAmount": 1,
+          "maxAmount": 2,
+          "seasonRestriction": ["SPRING"],
+          "timeRestriction": []
+        }
+      ]
+    },
+    {
+      "id": "riverside",
+      "name": "河边",
+      "locationId": "river",
+      "cooldown": 2400,
+      "staminaCost": 6,
+      "unlockCondition": "none",
+      "materials": [
+        {
+          "materialId": "reed",
+          "weight": 50,
+          "minAmount": 2,
+          "maxAmount": 4,
+          "seasonRestriction": [],
+          "timeRestriction": []
+        },
+        {
+          "materialId": "clay",
+          "weight": 30,
+          "minAmount": 1,
+          "maxAmount": 3,
+          "seasonRestriction": [],
+          "timeRestriction": []
+        },
+        {
+          "materialId": "lotus_seed",
+          "weight": 20,
+          "minAmount": 1,
+          "maxAmount": 2,
+          "seasonRestriction": ["SUMMER"],
+          "timeRestriction": []
+        }
+      ]
+    },
+    {
+      "id": "orchard",
+      "name": "果园",
+      "locationId": "village",
+      "cooldown": 5400,
+      "staminaCost": 10,
+      "unlockCondition": "friendship:lihua:20",
+      "materials": [
+        {
+          "materialId": "apple",
+          "weight": 40,
+          "minAmount": 1,
+          "maxAmount": 3,
+          "seasonRestriction": ["AUTUMN"],
+          "timeRestriction": []
+        },
+        {
+          "materialId": "peach",
+          "weight": 40,
+          "minAmount": 1,
+          "maxAmount": 3,
+          "seasonRestriction": ["SUMMER"],
+          "timeRestriction": []
+        },
+        {
+          "materialId": "plum",
+          "weight": 20,
+          "minAmount": 1,
+          "maxAmount": 2,
+          "seasonRestriction": ["SPRING"],
+          "timeRestriction": []
+        }
+      ]
+    }
+  ],
+
+  "notes": {
+    "cooldown": "单位为秒",
+    "weight": "权重用于概率计算，权重越高概率越大",
+    "seasonRestriction": "空数组表示无季节限制",
+    "timeRestriction": "空数组表示无时段限制"
+  }
+}

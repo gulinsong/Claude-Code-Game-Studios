@@ -1,0 +1,60 @@
+{
+  "$schema": "./schemas/stamina.schema.json",
+  "version": "1.0.0",
+  "description": "体力系统配置 - 恢复、消耗、上限",
+
+  "initialMax": 100,
+  "maxCap": 150,
+
+  "recovery": {
+    "intervalMinutes": 3,
+    "amountPerInterval": 1,
+    "maxOfflineHours": 24
+  },
+
+  "lowStaminaThreshold": 0.2,
+
+  "actions": {
+    "gathering": {
+      "common": 5,
+      "rare": 10,
+      "legendary": 15
+    },
+    "crafting": {
+      "food": 10,
+      "decoration": 15,
+      "tool": 20
+    },
+    "festivalEvent": 5
+  },
+
+  "items": {
+    "stamina_potion_small": {
+      "restore": 30,
+      "rarity": "common"
+    },
+    "stamina_potion_large": {
+      "restore": 60,
+      "rarity": "rare"
+    },
+    "stamina_potion_full": {
+      "restore": -1,
+      "rarity": "legendary",
+      "note": "-1 表示完全恢复"
+    }
+  },
+
+  "upgradeCosts": {
+    "100to110": { "coins": 500, "items": [] },
+    "110to120": { "coins": 1000, "items": [] },
+    "120to130": { "coins": 2000, "items": [] },
+    "130to140": { "coins": 4000, "items": [] },
+    "140to150": { "coins": 8000, "items": [] }
+  },
+
+  "notes": {
+    "recovery": "每 3 分钟恢复 1 点体力，离线最多计算 24 小时",
+    "lowStaminaThreshold": "低于 20% 时触发低体力警告",
+    "upgradeCosts": "体力上限从 100 升级到 150 的费用"
+  }
+}

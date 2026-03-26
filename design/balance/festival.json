@@ -1,0 +1,101 @@
+{
+  "$schema": "./schemas/festival.schema.json",
+  "version": "1.0.0",
+  "description": "节日系统配置 - 节日定义、任务、奖励",
+
+  "prepDays": 3,
+  "afterglowDays": 1,
+
+  "rewardTiers": {
+    "BASIC": { "minCompletion": 0, "maxCompletion": 49 },
+    "GOOD": { "minCompletion": 50, "maxCompletion": 99 },
+    "PERFECT": { "minCompletion": 100, "maxCompletion": 100 }
+  },
+
+  "festivals": [
+    {
+      "id": "qingming",
+      "name": "清明",
+      "season": "SPRING",
+      "gameDay": 7,
+      "description": "清明节，踏青祭祖的传统节日。",
+      "lore": "清明节是中国最重要的祭祀节日之一...",
+      "tasks": [
+        { "id": "make_qingtuan", "name": "制作青团", "type": "craft", "target": "qingtuan", "amount": 5, "contribution": 25 },
+        { "id": "gather_herbs", "name": "采集艾草", "type": "gather", "target": "herb", "amount": 10, "contribution": 20 },
+        { "id": "visit_ancestor", "name": "祭拜先祖", "type": "interact", "target": "ancestor_shrine", "amount": 1, "contribution": 30 },
+        { "id": "fly_kite", "name": "放风筝", "type": "minigame", "target": "kite_flying", "amount": 1, "contribution": 25 }
+      ],
+      "rewards": {
+        "BASIC": [{ "type": "coins", "amount": 100 }],
+        "GOOD": [{ "type": "coins", "amount": 200 }, { "type": "item", "id": "stamina_potion_small", "amount": 2 }],
+        "PERFECT": [{ "type": "coins", "amount": 400 }, { "type": "item", "id": "stamina_potion_large", "amount": 1 }, { "type": "recipe", "id": "premium_qingtuan" }]
+      }
+    },
+    {
+      "id": "duanwu",
+      "name": "端午",
+      "season": "SUMMER",
+      "gameDay": 14,
+      "description": "端午节，纪念屈原的传统节日。",
+      "lore": "端午节是中国四大传统节日之一...",
+      "tasks": [
+        { "id": "make_zongzi", "name": "包粽子", "type": "craft", "target": "zongzi", "amount": 8, "contribution": 30 },
+        { "id": "gather_reeds", "name": "采集苇叶", "type": "gather", "target": "reed", "amount": 15, "contribution": 20 },
+        { "id": "dragon_boat", "name": "赛龙舟", "type": "minigame", "target": "dragon_boat_race", "amount": 1, "contribution": 30 },
+        { "id": "hang_mugwort", "name": "挂艾草", "type": "interact", "target": "home_door", "amount": 1, "contribution": 20 }
+      ],
+      "rewards": {
+        "BASIC": [{ "type": "coins", "amount": 150 }],
+        "GOOD": [{ "type": "coins", "amount": 300 }, { "type": "item", "id": "stamina_potion_small", "amount": 3 }],
+        "PERFECT": [{ "type": "coins", "amount": 600 }, { "type": "item", "id": "stamina_potion_large", "amount": 2 }, { "type": "recipe", "id": "premium_zongzi" }]
+      }
+    },
+    {
+      "id": "zhongqiu",
+      "name": "中秋",
+      "season": "AUTUMN",
+      "gameDay": 21,
+      "description": "中秋节，赏月吃月饼的团圆节日。",
+      "lore": "中秋节是中国传统的团圆节日...",
+      "tasks": [
+        { "id": "make_mooncake", "name": "做月饼", "type": "craft", "target": "mooncake", "amount": 6, "contribution": 25 },
+        { "id": "make_lantern", "name": "做灯笼", "type": "craft", "target": "lantern", "amount": 2, "contribution": 25 },
+        { "id": "mooncake_game", "name": "月饼小游戏", "type": "minigame", "target": "mooncake_making", "amount": 1, "contribution": 25 },
+        { "id": "admire_moon", "name": "赏月", "type": "interact", "target": "moon_viewing_spot", "amount": 1, "contribution": 25 }
+      ],
+      "rewards": {
+        "BASIC": [{ "type": "coins", "amount": 200 }],
+        "GOOD": [{ "type": "coins", "amount": 400 }, { "type": "item", "id": "stamina_potion_large", "amount": 1 }],
+        "PERFECT": [{ "type": "coins", "amount": 800 }, { "type": "item", "id": "stamina_potion_full", "amount": 1 }, { "type": "recipe", "id": "premium_mooncake" }]
+      }
+    },
+    {
+      "id": "chunjie",
+      "name": "春节",
+      "season": "WINTER",
+      "gameDay": 28,
+      "description": "春节，中国最重要的传统节日。",
+      "lore": "春节是中国最隆重的传统节日...",
+      "tasks": [
+        { "id": "make_dumpling", "name": "包饺子", "type": "craft", "target": "dumpling", "amount": 10, "contribution": 20 },
+        { "id": "clean_house", "name": "大扫除", "type": "interact", "target": "home", "amount": 1, "contribution": 15 },
+        { "id": "write_couplet", "name": "写春联", "type": "minigame", "target": "couplet_writing", "amount": 1, "contribution": 20 },
+        { "id": "firecracker", "name": "放鞭炮", "type": "minigame", "target": "firecracker_game", "amount": 1, "contribution": 20 },
+        { "id": "visit_neighbors", "name": "拜年", "type": "interact", "target": "villagers", "amount": 5, "contribution": 25 }
+      ],
+      "rewards": {
+        "BASIC": [{ "type": "coins", "amount": 300 }],
+        "GOOD": [{ "type": "coins", "amount": 600 }, { "type": "item", "id": "stamina_potion_large", "amount": 2 }],
+        "PERFECT": [{ "type": "coins", "amount": 1200 }, { "type": "item", "id": "stamina_potion_full", "amount": 2 }, { "type": "unlock", "id": "spring_festival_outfit" }]
+      }
+    }
+  ],
+
+  "notes": {
+    "prepDays": "准备期天数",
+    "afterglowDays": "余韵期天数",
+    "contribution": "任务对完成度的贡献百分比",
+    "gameDay": "年内第几天（1-28）"
+  }
+}
