@@ -41,3 +41,18 @@ export type {
     AccessibilitySettings,
     AccessibilitySettingsChangedPayload
 } from './AccessibilitySystem';
+
+// 虚拟列表 (性能优化)
+export {
+    VirtualList,
+    VirtualListEvents,
+    createSimpleItemRenderer,
+    getVirtualListMetrics
+} from './VirtualList';
+export type {
+    VirtualListConfig,
+    VirtualListItem,
+    VisibleRange,
+    ScrollInfo,
+    VirtualListMetrics
+} from './VirtualList';
