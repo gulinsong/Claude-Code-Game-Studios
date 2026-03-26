@@ -35,7 +35,7 @@
 
 | ID | Task | Est. Days | Dependencies | Acceptance Criteria | Status |
 |----|------|-----------|-------------|-------------------|--------|
-| T8 | 玩家引导优化 | 0.5 | — | 新手引导流程改进 | ⬜ Pending |
+| T8 | 玩家引导优化 | 0.5 | — | 新手引导流程改进 | ✅ Done |
 | T9 | 成就系统完善 | 0.5 | — | 成就图标和描述完善 | ⬜ Pending |
 
 ## Technical Debt
@@ -90,10 +90,11 @@
 - [x] T5 完成 (存档迁移工具)
 - [x] T6 完成 (性能优化)
 - [x] T7 完成 (可访问性检查)
-- [ ] T8-T9 完成 (Nice to have)
+- [x] T8 完成 (玩家引导优化)
+- [ ] T9 完成 (成就系统完善)
 - [ ] 性能基准报告完成
 - [ ] 至少1次 Playtest 报告
-- [x] 所有测试继续通过 (779 tests)
+- [x] 所有测试继续通过 (815 tests)
 - [x] 代码审查完成
 - [ ] Gate Check 所有阻碍项解决
 
@@ -169,6 +170,23 @@
   - 总测试数: 779 tests
 
 **提交**: `0710cca`
+
+### 2026-03-26 - Sprint Day 2 (继续)
+
+**计划任务**:
+- [x] T8 玩家引导优化
+
+**完成情况**:
+- T8: 新手引导系统 (TutorialSystem)
+  - 步骤序列管理 (对话、高亮、操作、演示、选择)
+  - 依赖关系和优先级排序
+  - 进度追踪和存档/读档
+  - 跳过条件和自定义导航
+  - 内置引导: 欢迎、采集、制作、村民互动
+  - 36 个单元测试, 80.51% 覆盖率
+  - 总测试数: 815 tests
+
+**提交**: `9ee93d8`
 
 ---
 
@@ -314,7 +332,7 @@
 |--------|-------|--------|--------|
 | 011 | 性能基准 + Playtest + Release Prep | T3-T8 Done, T1-T2 Pending | 75% Complete |
 | 012 | 性能优化 + Assets + Balance + Monitoring | T3-T9 Done, T1-T2 Pending | 78% Complete |
-| 013 | Bug修复 + Polish | T3-T7 Done, T1-T2 Pending | 56% Complete |
+| 013 | Bug修复 + Polish | T3-T8 Done, T1-T2, T9 Pending | 67% Complete |
 | 014 | Release准备 | 可发布状态 | Planned |
 
 ---
