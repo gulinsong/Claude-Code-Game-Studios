@@ -20,8 +20,8 @@
 |----|------|-----------|-------------|-------------------|--------|
 | T1 | 性能基准测试 (延续 Sprint 011) | 1 | Cocos Creator | 建立性能基准，识别瓶颈 | ⬜ Pending |
 | T2 | Playtest 报告 (延续 Sprint 011) | 1 | Cocos Creator | 完成至少1次正式Playtest | ⬜ Pending |
-| T3 | 游戏资源目录结构 | 0.5 | — | 创建 assets/ 目录结构 | ⬜ Pending |
-| T4 | 平衡数据配置 | 1 | — | 创建 design/balance/ 配置文件 | ⬜ Pending |
+| T3 | 游戏资源目录结构 | 0.5 | — | 创建 assets/ 目录结构 | ✅ Done |
+| T4 | 平衡数据配置 | 1 | — | 创建 design/balance/ 配置文件 | ✅ Done |
 
 ### Should Have
 
@@ -29,7 +29,7 @@
 |----|------|-----------|-------------|-------------------|--------|
 | T5 | 渲染优化准备 | 1 | — | Draw Call 减少策略文档 | ⬜ Pending |
 | T6 | 资源加载策略 | 0.5 | — | 分包加载方案设计 | ⬜ Pending |
-| T7 | 商店元数据 | 0.5 | — | 微信小店商店信息 | ⬜ Pending |
+| T7 | 商店元数据 | 0.5 | — | 微信小店商店信息 | ✅ Done |
 
 ### Nice to Have
 
@@ -62,9 +62,9 @@
 |---------|--------|-------------------|
 | Performance baseline | ⬜ Pending | T1 完成后解决 |
 | Playtest report | ⬜ Pending | T2 完成后解决 |
-| Game assets | ⬜ Pending | T3 创建目录结构 |
-| Balance data | ⬜ Pending | T4 创建配置 |
-| Store metadata | ⬜ Pending | T7 完成 |
+| Game assets | ✅ Resolved | T3 完成 |
+| Balance data | ✅ Resolved | T4 完成 |
+| Store metadata | ✅ Resolved | T7 完成 |
 
 ## Risks
 
@@ -78,12 +78,13 @@
 ## Definition of Done for this Sprint
 
 - [ ] T1-T2 完成 (需要 Cocos Creator 运行时)
-- [ ] T3-T4 完成 (代码/配置层面)
-- [ ] T5-T7 完成 (文档/设计层面)
+- [x] T3-T4 完成 (代码/配置层面)
+- [x] T7 完成 (商店元数据)
+- [ ] T5-T6 完成 (文档/设计层面)
 - [ ] 性能基准报告完成
 - [ ] 至少1次Playtest报告
-- [ ] assets/ 目录结构创建
-- [ ] design/balance/ 配置创建
+- [x] assets/ 目录结构创建
+- [x] design/balance/ 配置创建
 - [ ] 所有测试继续通过
 
 ## Progress Log
@@ -91,9 +92,16 @@
 ### 2026-04-02 - Sprint Day 1
 
 **计划任务**:
-- [ ] T3 创建 assets/ 目录结构
-- [ ] T4 创建 design/balance/ 配置文件
-- [ ] T7 商店元数据准备
+- [x] T3 创建 assets/ 目录结构
+- [x] T4 创建 design/balance/ 配置文件
+- [x] T7 商店元数据准备
+
+**完成情况**:
+- T3: 创建完整 assets/ 目录结构，包含 README.md 和 .gitkeep 文件
+- T4: 创建 6 个平衡配置文件 (economy, stamina, gathering, crafting, festival, villager) + README
+- T7: 创建微信小游戏商店元数据文档
+
+**提交**: `b29cde7` feat: Complete Sprint 012 Day 1 tasks (T3, T4, T7)
 
 ---
 
@@ -142,17 +150,20 @@ design/balance/
 
 ## Store Metadata (T7 Target)
 
-| 字段 | 内容 |
-|------|------|
-| 游戏名称 | 岁时记 |
-| 游戏简介 | 温馨治愈的中国传统节日模拟游戏 |
-| 详细描述 | [待填写] |
-| 关键词 | 模拟,经营,节日,中国风,治愈 |
-| 分类 | 模拟 > 休闲 |
-| 截图1 | [待制作] |
-| 截图2 | [待制作] |
-| 截图3 | [待制作] |
-| 图标 | [待制作] |
+| 字段 | 内容 | 状态 |
+|------|------|------|
+| 游戏名称 | 岁时记 | ✅ |
+| 游戏简介 | 温馨治愈的中国传统节日模拟游戏 | ✅ |
+| 详细描述 | 已撰写完整文案 | ✅ |
+| 关键词 | 模拟,经营,节日,中国风,治愈,放松 | ✅ |
+| 分类 | 模拟 > 休闲 | ✅ |
+| 游戏图标 | 512x512 | ⬜ 待制作 |
+| 商店截图 | 5张 | ⬜ 待制作 |
+| 宣传图 | 1920x1080, 900x500 | ⬜ 待制作 |
+| 隐私政策 | 已准备 | ✅ |
+| 用户协议 | 已准备 | ✅ |
+
+详见: `production/store/wechat-store-metadata.md`
 
 ---
 
@@ -161,6 +172,6 @@ design/balance/
 | Sprint | Focus | Target | Status |
 |--------|-------|--------|--------|
 | 011 | 性能基准 + Playtest + Release Prep | T3-T8 Done, T1-T2 Pending | 75% Complete |
-| 012 | 性能优化 + Assets + Balance | 达成 Gate Check 目标 | In Progress |
+| 012 | 性能优化 + Assets + Balance | T3, T4, T7 Done, T1-T2 Pending | 50% Complete |
 | 013 | Bug修复 + Polish | 稳定性 | Planned |
 | 014 | Release准备 | 可发布状态 | Planned |
