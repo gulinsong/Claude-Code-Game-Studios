@@ -63,3 +63,18 @@ export type {
     LocalizationConfig,
     StringTable
 } from './LocalizationSystem';
+
+// 性能监控系统
+export {
+    PerformanceMonitor,
+    performanceMonitor,
+    PerformanceMetricType,
+    WarningLevel,
+    PerformanceEvents
+} from './PerformanceMonitor';
+export type {
+    PerformanceStats,
+    PerformanceThresholds,
+    PerformanceMonitorConfig,
+    PerformanceWarningPayload
+} from './PerformanceMonitor';
