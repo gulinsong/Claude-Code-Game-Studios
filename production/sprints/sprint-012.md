@@ -27,8 +27,8 @@
 
 | ID | Task | Est. Days | Dependencies | Acceptance Criteria | Status |
 |----|------|-----------|-------------|-------------------|--------|
-| T5 | 渲染优化准备 | 1 | — | Draw Call 减少策略文档 | ⬜ Pending |
-| T6 | 资源加载策略 | 0.5 | — | 分包加载方案设计 | ⬜ Pending |
+| T5 | 渲染优化准备 | 1 | — | Draw Call 减少策略文档 | ✅ Done |
+| T6 | 资源加载策略 | 0.5 | — | 分包加载方案设计 | ✅ Done |
 | T7 | 商店元数据 | 0.5 | — | 微信小店商店信息 | ✅ Done |
 
 ### Nice to Have
@@ -79,8 +79,8 @@
 
 - [ ] T1-T2 完成 (需要 Cocos Creator 运行时)
 - [x] T3-T4 完成 (代码/配置层面)
+- [x] T5-T6 完成 (文档/设计层面)
 - [x] T7 完成 (商店元数据)
-- [ ] T5-T6 完成 (文档/设计层面)
 - [ ] 性能基准报告完成
 - [ ] 至少1次Playtest报告
 - [x] assets/ 目录结构创建
@@ -102,6 +102,26 @@
 - T7: 创建微信小游戏商店元数据文档
 
 **提交**: `b29cde7` feat: Complete Sprint 012 Day 1 tasks (T3, T4, T7)
+
+### 2026-03-26 - Sprint Day 2
+
+**计划任务**:
+- [x] T5 渲染优化策略文档
+- [x] T6 资源加载策略文档
+
+**完成情况**:
+- T5: 创建 `docs/performance/rendering-optimization.md`
+  - 性能目标定义 (60 FPS, <100 Draw Calls)
+  - 7 大优化策略 (图集、合批、对象池、UI优化、遮挡剔除、分帧加载)
+  - Cocos Creator 特定优化
+  - 3 阶段实施计划
+- T6: 创建 `docs/performance/asset-loading-strategy.md`
+  - 分包结构 (main/common/4季节/远程CDN)
+  - 资源优先级系统 (CRITICAL → BACKGROUND)
+  - 启动加载序列 (<3s 目标)
+  - 内存预算和监控
+
+**提交**: `a6cf7a6`, `eb74651`
 
 ---
 
@@ -172,6 +192,6 @@ design/balance/
 | Sprint | Focus | Target | Status |
 |--------|-------|--------|--------|
 | 011 | 性能基准 + Playtest + Release Prep | T3-T8 Done, T1-T2 Pending | 75% Complete |
-| 012 | 性能优化 + Assets + Balance | T3, T4, T7 Done, T1-T2 Pending | 50% Complete |
+| 012 | 性能优化 + Assets + Balance | T3-T7 Done, T1-T2, T8-T9 Pending | 78% Complete |
 | 013 | Bug修复 + Polish | 稳定性 | Planned |
 | 014 | Release准备 | 可发布状态 | Planned |
