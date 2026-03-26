@@ -1,0 +1,245 @@
+# Sprint 13 -- 2026-04-09 to 2026-04-15
+
+## Sprint Goal
+
+**Bug 修复 + Polish** — 解决已知问题、完成性能测试、准备发布候选版本。
+
+## Capacity
+
+| 项目 | 数值 |
+|------|------|
+| 总天数 | 7 天 |
+| 缓冲（20%）| 1.4 天 |
+| 可用天数 | ~5.5 天 |
+
+## Tasks
+
+### Must Have (Critical Path)
+
+| ID | Task | Est. Days | Dependencies | Acceptance Criteria | Status |
+|----|------|-----------|-------------|-------------------|--------|
+| T1 | 性能基准测试 (延续 Sprint 012) | 1 | Cocos Creator | 建立性能基准，生成报告 | ⬜ Pending |
+| T2 | Playtest 报告 (延续 Sprint 012) | 1 | Cocos Creator | 完成至少1次正式Playtest | ⬜ Pending |
+| T3 | Flaky Test 修复 | 0.5 | — | CloudSaveSystem 异步测试稳定 | ⬜ Pending |
+| T4 | 代码审查完成 | 1 | — | 所有核心系统代码审查完成 | ⬜ Pending |
+
+### Should Have
+
+| ID | Task | Est. Days | Dependencies | Acceptance Criteria | Status |
+|----|------|-----------|-------------|-------------------|--------|
+| T5 | 存档迁移工具 | 0.5 | — | 版本升级存档迁移脚本 | ⬜ Pending |
+| T6 | 性能优化实施 | 1 | T1 | 根据基准报告实施优化 | ⬜ Pending |
+| T7 | 可访问性检查 | 0.5 | — | WCAG 2.1 AA 合规检查 | ⬜ Pending |
+
+### Nice to Have
+
+| ID | Task | Est. Days | Dependencies | Acceptance Criteria | Status |
+|----|------|-----------|-------------|-------------------|--------|
+| T8 | 玩家引导优化 | 0.5 | — | 新手引导流程改进 | ⬜ Pending |
+| T9 | 成就系统完善 | 0.5 | — | 成就图标和描述完善 | ⬜ Pending |
+
+## Technical Debt
+
+| Item | Priority | Est. Effort | Sprint Target |
+|------|----------|-------------|---------------|
+| Flaky async test (CloudSaveSystem) | High | 0.5 day | T3 解决 |
+| 代码审查积压 | Medium | 1 day | T4 完成 |
+| 性能基准缺失 | High | 1 day | T1 完成 |
+| 文档同步 | Low | Ongoing | 持续 |
+
+## Bug Backlog
+
+| Bug | Priority | Status | Sprint Target |
+|-----|----------|--------|---------------|
+| 无已知 Bug | — | — | 保持 |
+
+## Performance Targets
+
+| 指标 | 目标 | Sprint 012 状态 | Sprint 013 目标 |
+|------|------|----------------|-----------------|
+| 帧率 | 60 FPS (高端), 30 FPS (低端) | ❓ 待测试 | ✅ 验证达标 |
+| Draw Calls | < 100 | ❓ 待测试 | ✅ 验证达标 |
+| 内存 | < 150MB | ❓ 待测试 | ✅ 验证达标 |
+| 启动时间 | < 3s | ❓ 待测试 | ✅ 验证达标 |
+| 存档大小 | < 50KB | ✅ 已验证 | ✅ 保持 |
+
+## Gate Check Status (from Sprint 012)
+
+| Blocker | Status | Sprint 013 Target |
+|---------|--------|-------------------|
+| Performance baseline | ⬜ Pending | T1 完成后解决 |
+| Playtest report | ⬜ Pending | T2 完成后解决 |
+| Game assets | ✅ Resolved | — |
+| Balance data | ✅ Resolved | — |
+| Store metadata | ✅ Resolved | — |
+| Monitoring systems | ✅ Resolved | — |
+
+## Risks
+
+| Risk | Probability | Impact | Mitigation |
+|------|------------|--------|------------|
+| 性能不达标 | Medium | High | T6 预留优化时间 |
+| Playtest 发现严重问题 | Medium | High | 快速迭代修复 |
+| Cocos Creator 环境问题 | Low | Medium | 文档记录，社区支持 |
+| 资源制作延迟 | Low | Medium | 使用占位资源 |
+
+## Definition of Done for this Sprint
+
+- [ ] T1-T2 完成 (需要 Cocos Creator 运行时)
+- [ ] T3-T4 完成 (代码质量)
+- [ ] T5-T7 完成 (可选优化)
+- [ ] 性能基准报告完成
+- [ ] 至少1次 Playtest 报告
+- [ ] 所有测试继续通过
+- [ ] 代码审查完成
+- [ ] Gate Check 所有阻碍项解决
+
+## Progress Log
+
+### 2026-04-09 - Sprint Day 1
+
+**计划任务**:
+- [ ] T1 性能基准测试
+- [ ] T3 Flaky Test 修复
+
+---
+
+## Performance Test Plan (T1)
+
+### 测试环境
+
+| 设备类型 | 规格 | 目标 FPS |
+|----------|------|----------|
+| 高端 Android | 骁龙 888+, 8GB+ RAM | 60 FPS |
+| 中端 Android | 骁龙 765, 4GB RAM | 45 FPS |
+| 低端 Android | 骁龙 660, 3GB RAM | 30 FPS |
+| iPhone | iPhone 12+ | 60 FPS |
+| 微信开发者工具 | 模拟器 | 60 FPS |
+
+### 测试场景
+
+1. **启动场景** - 冷启动时间测量
+2. **主界面** - UI 渲染性能
+3. **游戏主循环** - 帧率稳定性
+4. **节日庆典** - 特效和动画压力测试
+5. **背包界面** - 列表滚动性能
+
+### 测试指标
+
+| 指标 | 测量方法 | 目标值 |
+|------|----------|--------|
+| FPS | PerformanceMonitor | 60/30 FPS |
+| Draw Calls | Cocos Creator 调试器 | < 100 |
+| 内存 | wx.getPerformance() | < 150 MB |
+| 启动时间 | performance.now() | < 3 s |
+| 帧时间 | PerformanceMonitor | < 16.6 ms |
+
+## Playtest Plan (T2)
+
+### 测试目标
+
+- 验证核心玩法循环
+- 验证节日系统流程
+- 收集用户体验反馈
+- 发现 Bug 和问题
+
+### 测试用例
+
+| 用例 | 场景 | 预期结果 |
+|------|------|----------|
+| PT-001 | 新游戏开始 | 引导完成，进入主界面 |
+| PT-002 | 采集资源 | 正确获得材料 |
+| PT-003 | 制作物品 | 配方解锁和制作成功 |
+| PT-004 | 送礼给村民 | 好感度正确变化 |
+| PT-005 | 节日准备 | 任务进度追踪正确 |
+| PT-006 | 节日庆典 | 小游戏正常运行 |
+| PT-007 | 存档/读档 | 数据正确保存和恢复 |
+| PT-008 | 离线恢复 | 体力正确恢复 |
+
+### 测试报告模板
+
+```markdown
+## Playtest Report
+
+**日期**: YYYY-MM-DD
+**测试者**: 姓名
+**版本**: x.x.x
+**设备**: 设备信息
+
+### 测试结果
+
+| 用例 | 结果 | 备注 |
+|------|------|------|
+| PT-001 | ✅/❌ | |
+| ... | | |
+
+### 发现的问题
+
+1. [严重程度] 问题描述
+   - 复现步骤
+   - 预期行为
+   - 实际行为
+
+### 用户反馈
+
+- 正面反馈
+- 改进建议
+
+### 总结
+
+[整体评价和建议]
+```
+
+---
+
+## Code Review Checklist (T4)
+
+### 核心系统
+
+- [ ] EventSystem
+- [ ] ConfigSystem
+- [ ] TimeSystem
+- [ ] CloudSaveSystem
+- [ ] LocalizationSystem
+- [ ] PerformanceMonitor
+- [ ] ErrorReporter
+
+### 游戏系统
+
+- [ ] BackpackSystem
+- [ ] CraftingSystem
+- [ ] FestivalSystem
+- [ ] GatheringSystem
+- [ ] QuestSystem
+- [ ] VillagerSystem
+
+### UI 系统
+
+- [ ] UIFramework
+- [ ] AccessibilitySystem
+
+### 测试覆盖
+
+- [ ] 核心系统 > 80%
+- [ ] 游戏系统 > 70%
+- [ ] UI 系统 > 60%
+
+---
+
+## Polish Phase Roadmap
+
+| Sprint | Focus | Target | Status |
+|--------|-------|--------|--------|
+| 011 | 性能基准 + Playtest + Release Prep | T3-T8 Done, T1-T2 Pending | 75% Complete |
+| 012 | 性能优化 + Assets + Balance + Monitoring | T3-T9 Done, T1-T2 Pending | 78% Complete |
+| 013 | Bug修复 + Polish | T1-T4 Done, Gate Check 完成 | In Progress |
+| 014 | Release准备 | 可发布状态 | Planned |
+
+---
+
+## Next Sprint Preview (Sprint 014)
+
+- 最终性能验证
+- 商店资源制作 (图标、截图)
+- 提交审核
+- 发布准备
