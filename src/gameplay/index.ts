@@ -183,3 +183,19 @@ export type {
     ITimeProvider as IFestivalTimeProvider,
     IFestivalSystem
 } from './FestivalSystem';
+
+// 新手引导系统
+export {
+    TutorialSystem,
+    TutorialStepType,
+    TutorialStepStatus,
+    TutorialEvents,
+    createBasicTutorialSequences
+} from './TutorialSystem';
+export type {
+    TutorialStepConfig,
+    TutorialSequenceConfig,
+    TutorialStepState,
+    TutorialSequenceState,
+    TutorialSystemData
+} from './TutorialSystem';
