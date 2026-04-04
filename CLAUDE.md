@@ -5,14 +5,13 @@ Each agent owns a specific domain, enforcing separation of concerns and quality.
 
 ## Technology Stack
 
-- **Engine**: [CHOOSE: Godot 4 / Unity / Unreal Engine 5]
-- **Language**: [CHOOSE: GDScript / C# / C++ / Blueprint]
+- **Engine**: Cocos Creator 3.8.8 LTS
+- **Language**: TypeScript (primary), JavaScript (optional)
 - **Version Control**: Git with trunk-based development
-- **Build System**: [SPECIFY after choosing engine]
-- **Asset Pipeline**: [SPECIFY after choosing engine]
+- **Build System**: Cocos Creator Build Pipeline
+- **Asset Pipeline**: Cocos Creator Asset Database + resources manager
 
-> **Note**: Engine-specialist agents exist for Godot, Unity, and Unreal with
-> dedicated sub-specialists. Use the set matching your engine.
+> **Note**: This project uses Cocos Creator for WeChat Mini-Game development.
 
 ## Project Structure
 
@@ -20,7 +19,7 @@ Each agent owns a specific domain, enforcing separation of concerns and quality.
 
 ## Engine Version Reference
 
-@docs/engine-reference/godot/VERSION.md
+@docs/engine-reference/cocos-creator/VERSION.md
 
 ## Technical Preferences
 
