@@ -1,8 +1,8 @@
 # Systems Index: 反弹达人 (Bounce Master)
 
-> **Status**: Draft
+> **Status**: Approved
 > **Created**: 2026-03-27
-> **Last Updated**: 2026-03-27
+> **Last Updated**: 2026-04-04
 > **Source Concept**: design/gdd/game-concept.md
 
 ---
@@ -26,13 +26,13 @@
 | 5 | 游戏状态管理 | Core | MVP | Approved | design/gdd/game-state-management.md | 场景管理 |
 | 6 | 球物理系统 | Gameplay | MVP | Approved | design/gdd/ball-physics-system.md | 碰撞系统, 边界系统 |
 | 7 | 画线反弹系统 | Gameplay | MVP | Approved | design/gdd/line-bounce-system.md | 输入系统, 碰撞系统, 视觉反馈系统 |
-| 8 | 光点收集系统 | Gameplay | MVP | Not Started | — | 碰撞系统, 视觉反馈系统, 音频系统 |
-| 9 | 出界检测系统 | Gameplay | MVP | Not Started | — | 边界系统, 碰撞系统, 音频系统 |
-| 10 | 关卡系统 | Gameplay | MVP | Not Started | — | 场景管理, 游戏状态管理 |
+| 8 | 光点收集系统 | Gameplay | MVP | Approved | design/gdd/light-point-collection-system.md | 碰撞系统, 视觉反馈系统, 音频系统 |
+| 9 | 出界检测系统 | Gameplay | MVP | Approved | design/gdd/out-of-bounds-system.md | 边界系统, 碰撞系统, 音频系统 |
+| 10 | 关卡系统 | Gameplay | MVP | Approved | design/gdd/level-system.md | 场景管理, 游戏状态管理 |
 | 11 | 音频系统 | Audio | MVP | Approved | design/gdd/audio-system.md | — |
 | 12 | 视觉反馈系统 | Core | MVP | Approved | design/gdd/visual-feedback-system.md | — |
-| 13 | 星级评价系统 | Progression | MVP | Not Started | — | 游戏状态管理, 光点收集系统 |
-| 14 | UI系统 | UI | MVP | Not Started | — | 游戏状态管理, 关卡系统, 星级评价系统 |
+| 13 | 星级评价系统 | Progression | MVP | Approved | design/gdd/star-rating-system.md | 游戏状态管理, 光点收集系统 |
+| 14 | UI系统 | UI | MVP | Approved | design/gdd/ui-system.md | 游戏状态管理, 关卡系统, 星级评价系统 |
 | 15 | 存档系统 | Persistence | VS | Not Started | — | 游戏状态管理, 关卡系统, 星级评价系统 |
 | 16 | 皮肤系统 | Progression | VS | Not Started | — | UI系统 |
 | 17 | 排行榜系统 | Meta | Alpha | Not Started | — | 游戏状态管理, 关卡系统 |
@@ -146,10 +146,10 @@
 | Metric | Count |
 |--------|-------|
 | Total systems identified | 17 |
-| Design docs started | 9 |
-| Design docs reviewed | 9 |
-| Design docs approved | 9 |
-| MVP systems designed | 9/14 |
+| Design docs started | 14 |
+| Design docs reviewed | 14 |
+| Design docs approved | 14 |
+| MVP systems designed | 14/14 |
 | VS systems designed | 0/2 |
 | Alpha systems designed | 0/1 |
 
@@ -157,7 +157,10 @@
 
 ## Next Steps
 
-- [ ] 设计第一个系统：输入系统 (`/design-system 输入系统`)
-- [ ] 或者先原型验证高风险系统：球物理系统 (`/prototype 球物理`)
-- [ ] 每个GDD完成后运行 `/design-review`
-- [ ] MVP系统全部设计完成后运行 `/gate-check pre-production`
+- [x] ~~设计第一个系统：输入系统 (`/design-system 输入系统`)~~
+- [x] ~~或者先原型验证高风险系统：球物理系统 (`/prototype 球物理`)~~
+- [x] ~~每个GDD完成后运行 `/design-review`~~
+- [x] ~~MVP系统全部设计完成后运行 `/gate-check pre-production`~~
+- [ ] 运行 `/gate-check pre-production` 验证可进入生产阶段
+- [ ] 开始 Sprint 1：核心反弹原型验证
+- [ ] 设计存档系统（VS priority）和皮肤系统（VS priority）

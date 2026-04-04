@@ -1,0 +1,15 @@
+{
+  "__version__": "1.0.6",
+  "general": {
+    "designResolution": {
+      "width": 750,
+      "height": 1334,
+      "policy": 3
+    },
+    "startScene": "2d2f792f-a40c-49bb-a189-ed176a246e49"
+  },
+  "scripting": {
+    "scriptBundleType": "bundled",
+    "scriptDir": "assets/scripts"
+  }
+}

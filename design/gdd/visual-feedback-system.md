@@ -1,6 +1,6 @@
 # 视觉反馈系统 (Visual Feedback System)
 
-> **Status**: In Design
+> **Status**: Approved
 > **Author**: User + Claude
 > **Last Updated**: 2026-03-27
 > **Implements Pillar**: 物理爽感

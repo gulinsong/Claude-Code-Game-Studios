@@ -1,0 +1,35 @@
+{
+  "__version__": "1.3.9",
+  "wechatgame": {
+    "appid": "wx-placeholder-appid",
+    "orientation": "portrait",
+    "subContext": "",
+    "deviceOrientation": "portrait",
+    "separateEngine": true,
+    "subpackages": [
+      {
+        "name": "common",
+        "root": "assets/resources/common"
+      },
+      {
+        "name": "spring",
+        "root": "assets/resources/spring"
+      },
+      {
+        "name": "summer",
+        "root": "assets/resources/summer"
+      },
+      {
+        "name": "autumn",
+        "root": "assets/resources/autumn"
+      },
+      {
+        "name": "winter",
+        "root": "assets/resources/winter"
+      }
+    ],
+    "wasmSubpackage": false,
+    "useCustomManifest": false,
+    "customManifestPath": ""
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "engine": "cocos-creator-js",
+  "packages": "packages",
+  "version": "3.8.8",
+  "id": "com.suiji.game",
+  "name": "岁时记",
+  "title": "岁时记 - 中国传统节日经营模拟游戏",
+  "creator": {
+    "version": "3.8.8"
+  }
+}
