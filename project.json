@@ -2,9 +2,9 @@
   "engine": "cocos-creator-js",
   "packages": "packages",
   "version": "3.8.8",
-  "id": "com.suiji.game",
-  "name": "岁时记",
-  "title": "岁时记 - 中国传统节日经营模拟游戏",
+  "id": "com.bouncemaster.game",
+  "name": "反弹达人",
+  "title": "反弹达人 - Bounce Master",
   "creator": {
     "version": "3.8.8"
   }

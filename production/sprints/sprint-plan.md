@@ -1,8 +1,8 @@
 # Sprint Plan -- 反弹达人 (Bounce Master) MVP
 
 > **Created**: 2026-04-04
-> **Status**: Draft
-> **Project Stage**: Pre-Production
+> **Status**: Active
+> **Project Stage**: Production (Sprint 1)
 > **Target**: MVP Playable in ~3 weeks (5 sprints)
 
 ---

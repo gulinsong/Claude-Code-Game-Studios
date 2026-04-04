@@ -1,3 +1,11 @@
 {
-  "__version__": "1.0.12"
+  "__version__": "1.0.12",
+  "modules": [
+    "2d",
+    "2d-physics",
+    "physics-2d-box2d",
+    "ui",
+    "audio",
+    "tween"
+  ]
 }
