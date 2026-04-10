@@ -73,13 +73,13 @@
 
 | System | Direction | Interface | Description |
 |--------|-----------|-----------|-------------|
-| **画线反弹系统** | 输出 → | `registerLine(start: Vec2, end: Vec2): lineId` | 注册新线段为碰撞体 |
-| **画线反弹系统** | 输出 → | `unregisterLine(lineId: string)` | 移除线段碰撞体 |
-| **光点收集系统** | 输出 → | `registerLightPoint(position: Vec2, radius: number): lightPointId` | 注册光点触发器 |
-| **光点收集系统** | 输出 → | `unregisterLightPoint(lightPointId: string)` | 移除光点触发器 |
+| **画线反弹系统** | 输入 ← | `registerLine(start: Vec2, end: Vec2): lineId` | 注册新线段为碰撞体 |
+| **画线反弹系统** | 输入 ← | `unregisterLine(lineId: string)` | 移除线段碰撞体 |
+| **光点收集系统** | 输入 ← | `registerLightPoint(position: Vec2, radius: number): lightPointId` | 注册光点触发器 |
+| **光点收集系统** | 输入 ← | `unregisterLightPoint(lightPointId: string)` | 移除光点触发器 |
 | **出界检测系统** | 输入 ← | `onBallOutOfBounds(): void` | 球越界回调 |
-| **视觉反馈系统** | 输入 ← | `onBallHitLine(position: Vec2, normal: Vec2): void` | 球撞线回调 |
-| **音频系统** | 输入 ← | `onBallHitLine(position: Vec2, normal: Vec2): void` | 球撞线回调（播放反弹音效） |
+| **视觉反馈系统** | 输出 → | `onBallHitLine(position: Vec2, normal: Vec2): void` | 球撞线时触发反弹效果 |
+| **音频系统** | 输出 → | `onBallHitLine(position: Vec2, normal: Vec2): void` | 球撞线回调（播放反弹音效） |
 | **场景管理** | 输入 ← | `clearAllColliders(): void` | 场景切换时清除所有碰撞体 |
 | **游戏状态管理** | 输入 ← | `setPaused(paused: boolean): void` | 暂停/恢复碰撞检测 |
 
@@ -150,12 +150,12 @@ collectionRadius = LIGHTPOINT_VISUAL_RADIUS + BALL_RADIUS + COLLECTION_TOLERANCE
 | System | Direction | Nature of Dependency | Status |
 |--------|-----------|---------------------|--------|
 | **场景管理** | 输入 ← | 碰撞检测只在游戏场景运行；场景切换时清除所有碰撞体 | Approved |
-| **画线反弹系统** | 双向 | 注册/注销线段碰撞体；接收球撞线回调 | 未设计 |
-| **光点收集系统** | 双向 | 注册/注销光点触发器；接收收集回调 | 未设计 |
-| **出界检测系统** | 输出 → | 提供出界回调接口 | 未设计 |
+| **画线反弹系统** | 双向 | 注册/注销线段碰撞体；接收球撞线回调 | Approved |
+| **光点收集系统** | 双向 | 注册/注销光点触发器；接收收集回调 | Approved |
+| **出界检测系统** | 输出 → | 提供出界回调接口 | Approved |
 | **视觉反馈系统** | 输出 → | 球撞线时触发 `playBounceEffect()` | Approved |
 | **音频系统** | 输出 → | 球撞线时触发 `playSound('bounce')` | Approved |
-| **游戏状态管理** | 输入 ← | 暂停/恢复碰撞检测 | 未设计 |
+| **游戏状态管理** | 输入 ← | 暂停/恢复碰撞检测 | Approved |
 
 **注意**：碰撞系统是 Core 层，只依赖 Foundation 层的场景管理。所有依赖它的系统都在 Feature 层。
 

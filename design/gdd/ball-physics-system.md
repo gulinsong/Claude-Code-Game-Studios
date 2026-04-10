@@ -67,7 +67,7 @@
 **6. 球的状态**：
 - **静止** (Idle): 未发射，等待发射指令
 - **运动中** (Moving): 已发射，受物理模拟
-- **出界** (OutOfBounds): 越过底部边界，触发失败
+- **出界** (OutOfBounds): 越过底部边界（由出界检测系统处理）
 - **收集完成** (Collected): 所有光点收集完成，触发胜利
 
 ### States and Transitions
@@ -95,7 +95,7 @@
 |---------|---------|---------|--------|
 | `Idle` | 发射指令 | `Moving` | 施加初始冲量，开始物理模拟 |
 | `Idle` | 关卡重置 | `Idle` | 重置到初始位置 |
-| `Moving` | 越过底部边界 | `OutOfBounds` | 停止物理，触发出界事件 |
+| `Moving` | 球越过底部边界（碰撞系统通知） | `OutOfBounds` | 禁用碰撞体，停止物理模拟 |
 | `Moving` | 所有光点收集 | `Collected` | 停止物理，触发胜利事件 |
 | `Moving` | 暂停指令 | `Paused` | 暂停物理模拟 |
 | `Moving` | 速度钳制 | `Moving` | 调整速度到范围内（无状态变化） |
@@ -110,7 +110,7 @@
 | **Idle** | 关卡加载/重置 | 发射指令 | 球静止在发射位置，不参与物理模拟 |
 | **Moving** | 发射指令 | 出界/收集/暂停 | 受重力影响，参与碰撞检测，速度被钳制 |
 | **Paused** | 暂停指令 | 恢复指令 | 物理模拟暂停，位置和速度保持 |
-| **OutOfBounds** | 越过底部边界 | 关卡重置 | 停止物理，触发游戏状态管理的 `onBallOutOfBounds()` |
+| **OutOfBounds** | 出界检测系统通知球出界 | 关卡重置 | 禁用碰撞体，停止物理模拟（出界检测系统负责通知游戏状态管理） |
 | **Collected** | 所有光点收集 | 进入下一关 | 停止物理，触发游戏状态管理的胜利处理 |
 
 ### Interactions with Other Systems
@@ -121,8 +121,7 @@
 | **碰撞系统** | 输出 → | `unregisterBall(): void` | 移除球的碰撞体 |
 | **碰撞系统** | 输入 ← | `onBallHitLine(position: Vec2, normal: Vec2): void` | 球撞线回调 |
 | **碰撞系统** | 输入 ← | `onBallHitBoundary(position: Vec2, boundary: string): void` | 球撞边界回调 |
-| **边界系统** | 输入 ← | `onBallOutOfBounds(): void` | 球越过底部边界回调 |
-| **游戏状态管理** | 输出 → | `onBallOutOfBounds(): void` | 通知球出界 |
+| **出界检测系统** | 输入 ← | `onBallOutOfBounds(): void` | 出界检测系统通知球已出界 |
 | **游戏状态管理** | 输入 ← | `onPhaseChanged(phase: GamePhase): void` | 游戏阶段变化（暂停/恢复） |
 | **视觉反馈系统** | 输出 → | `onBallBounce(position: Vec2, normal: Vec2): void` | 球反弹时触发视觉效果 |
 | **音频系统** | 输出 → | `onBallBounce(position: Vec2): void` | 球反弹时播放音效 |
@@ -262,22 +261,21 @@ isOutOfBounds = (ballPosition.y < bottomBoundary - BALL_RADIUS)
 | System | Direction | Nature of Dependency | Status |
 |--------|-----------|---------------------|--------|
 | **碰撞系统** | 双向 | 硬依赖：注册球碰撞体；接收碰撞回调 | Approved |
-| **边界系统** | 输入 ← | 硬依赖：接收出界回调 | Approved |
+| **出界检测系统** | 输入 ← | 硬依赖：接收出界通知 | Approved |
 | **游戏状态管理** | 双向 | 软依赖：通知出界/收集；接收暂停/恢复指令 | Approved |
 | **视觉反馈系统** | 输出 → | 软依赖：反弹时触发视觉效果 | Approved |
 | **音频系统** | 输出 → | 软依赖：反弹时播放音效 | Approved |
-| **关卡系统** | 输入 ← | 软依赖：获取发射位置和方向 | 未设计 |
-| **画线反弹系统** | 输出 → | 软依赖：球撞线时通知（用于撤销限制） | 未设计 |
-| **光点收集系统** | 输出 → | 软依赖：球位置用于收集检测（由碰撞系统处理） | 未设计 |
-| **出界检测系统** | 输出 → | 软依赖：出界时通知（由边界系统处理） | 未设计 |
+| **关卡系统** | 输入 ← | 软依赖：获取发射位置和方向 | Approved |
+| **画线反弹系统** | 输出 → | 软依赖：球撞线时通知（用于撤销限制） | Approved |
+| **光点收集系统** | 输出 → | 软依赖：球位置用于收集检测（由碰撞系统处理） | Approved |
 
 **依赖性质分析**：
 - **碰撞系统**：**硬依赖**——没有碰撞系统，球无法与任何物体交互
-- **边界系统**：**硬依赖**——没有边界系统，无法检测出界
+- **出界检测系统**：**硬依赖**——没有出界检测系统，无法接收出界通知
 - **游戏状态管理**：**软依赖**——可以没有游戏状态管理运行，但无法响应暂停/恢复
 - **视觉/音频系统**：**软依赖**——核心物理功能不依赖它们，只是增强体验
 
-**注意**：球物理系统是 Feature 层，依赖 Core 层的碰撞系统和边界系统。所有依赖它的系统都在 Feature 或 Presentation 层。
+**注意**：球物理系统是 Feature 层，依赖 Core 层的碰撞系统和出界检测系统。所有依赖它的系统都在 Feature 或 Presentation 层。
 
 ## Tuning Knobs
 
@@ -310,7 +308,7 @@ isOutOfBounds = (ballPosition.y < bottomBoundary - BALL_RADIUS)
 | 球发射 | 球显示发射动画 | `playSound('launch')` |
 | 球反弹（撞线） | `playBounceEffect(position)` | `playSound('bounce')` |
 | 球反弹（撞边界） | 无特殊效果 | `playSound('bounce_wall')`（可选） |
-| 球出界 | `playLoseEffect()` | `playSound('lose')` |
+| 球出界 | 无（由出界检测系统处理） | 无（由出界检测系统处理） |
 | 球运动中 | 球跟随物理位置更新（每帧） | 无 |
 
 **调试可视化**（仅开发模式）：
@@ -336,7 +334,7 @@ isOutOfBounds = (ballPosition.y < bottomBoundary - BALL_RADIUS)
 - [ ] 球发射后受重力影响，轨迹呈抛物线
 - [ ] 球撞到线段后正确反弹（入射角 ≈ 反射角）
 - [ ] 球撞到边界后正确反弹
-- [ ] 球越过底部边界时触发 `onBallOutOfBounds()`
+- [ ] 出界检测系统通知球出界时，球进入 OutOfBounds 状态并禁用碰撞体
 - [ ] 球速度被正确钳制在 [MIN_BALL_SPEED, MAX_BALL_SPEED] 范围内
 - [ ] 高速球不会穿透线段或边界（CCD 工作正常）
 

@@ -19,16 +19,20 @@
 
 ### Core Rules
 
-1. **场景类型**：游戏有4个主要场景
+1. **场景类型**：游戏有5个主要场景 + 2个覆盖层
    - **主菜单** (MainMenu)：游戏入口，包含开始游戏、设置按钮
+   - **世界选择** (WorldSelect)：选择游戏世界，显示星星进度和解锁状态
    - **关卡选择** (LevelSelect)：显示关卡列表，已解锁/未解锁状态
    - **游戏场景** (Gameplay)：核心玩法场景
-   - **结果界面** (Result)：显示关卡结果，星星数，重试/下一关按钮
+   **覆盖层**（在游戏场景内渲染）：
+   - **暂停菜单** (PauseOverlay)：暂停时显示的覆盖层
+   - **胜利结果** (WinResultOverlay)：关卡胜利时显示的覆盖层
+   - **失败结果** (LoseResultOverlay)：关卡失败时显示的覆盖层
 
 2. **场景栈**：使用单场景模式（不保留历史栈），每次只加载一个场景，节省内存
 
 3. **过渡效果**：所有场景切换使用渐入渐出（Fade）过渡
-   - 过渡时间：TRANSITION_DURATION = 0.5 秒（FADE_OUT 0.25s + FADE_IN 0.25s）
+   - 过渡时间：TRANSITION_DURATION = 0.3 秒（FADE_OUT 0.15s + FADE_IN 0.15s）
    - 过渡颜色：黑色 (#000000)
 
 4. **数据传递**：场景切换时通过参数对象传递数据
@@ -50,9 +54,16 @@
 
 **场景流程图**：
 ```
-主菜单 --[开始游戏]--> 关卡选择 --[选择关卡]--> 游戏场景 --[关卡结束]--> 结果界面
-                         ^                                            |
-                         +-----------[重试/下一关]--------------------+
+主菜单 --[开始游戏]--> 世界选择 --[选择世界]--> 关卡选择 --[选择关卡]--> 游戏场景
+                                                                        │
+                                                           ┌────────────┼────────────┐
+                                                           ▼            ▼            ▼
+                                                     暂停覆盖层    胜利覆盖层    失败覆盖层
+                                                                        │
+                                                                 [下一关/重试]
+                                                                        │
+                                                                        ▼
+                                                              关卡选择（或直接加载下一关）
 ```
 
 ### Interactions with Other Systems
@@ -77,11 +88,11 @@ totalTransitionTime = transitionDuration
 
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
-| FADE_OUT_TIME | number | 0.25s | 配置常量 | 旧场景淡出时间 |
-| FADE_IN_TIME | number | 0.25s | 配置常量 | 新场景淡入时间 |
-| transitionDuration | number | 0.5s | 计算得出 | 总过渡时间 |
+| FADE_OUT_TIME | number | 0.15s | 配置常量 | 旧场景淡出时间 |
+| FADE_IN_TIME | number | 0.15s | 配置常量 | 新场景淡入时间 |
+| transitionDuration | number | 0.3s | 计算得出 | 总过渡时间 |
 
-**Expected output**: 固定 0.5 秒过渡
+**Expected output**: 固定 0.3 秒过渡
 
 ### 场景加载时间预估
 
@@ -110,12 +121,12 @@ estimatedLoadTime = sceneComplexity * BASE_LOAD_TIME
 
 | System | Direction | Nature of Dependency | Status |
 |--------|-----------|---------------------|--------|
-| **关卡系统** | 输出 → | 请求加载指定关卡 | 未设计 |
-| **游戏状态管理** | 双向 | 获取/设置游戏状态 | 未设计 |
-| **存档系统** | 输入 ← | 加载玩家进度 | 未设计 |
-| **音频系统** | 输出 → | 切换场景音乐 | 未设计 |
-| **视觉反馈系统** | 输出 → | 显示过渡动画 | 未设计 |
-| **UI系统** | 输出 → | 初始化当前场景的UI | 未设计 |
+| **关卡系统** | 输出 → | 请求加载指定关卡 | Approved |
+| **游戏状态管理** | 双向 | 获取/设置游戏状态 | Approved |
+| **存档系统** | 输入 ← | 加载玩家进度 | Approved |
+| **音频系统** | 输出 → | 切换场景音乐 | Approved |
+| **视觉反馈系统** | 输出 → | 显示过渡动画 | Approved |
+| **UI系统** | 输出 → | 初始化当前场景的UI | Approved |
 
 **注意**：场景管理是 Foundation 层，没有上游依赖。所有依赖它的系统都在 Core 或 Feature 层。
 
@@ -123,7 +134,7 @@ estimatedLoadTime = sceneComplexity * BASE_LOAD_TIME
 
 | Parameter | Current Value | Safe Range | Effect of Increase | Effect of Decrease |
 |-----------|--------------|------------|-------------------|-------------------|
-| **TRANSITION_DURATION** | 0.5s | 0.3-1.0s | 过渡更优雅但等待更长 | 过渡更快但可能突兀 |
+| **TRANSITION_DURATION** | 0.3s | 0.3-1.0s | 过渡更优雅但等待更长 | 过渡更快但可能突兀 |
 | **PRELOAD_DELAY** | 500ms | 200-1000ms | 预加载更充分 | 响应更快但可能加载不完整 |
 | **SCENE_COMPLEXITY_FACTOR** | 1.0 | 0.5-2.0 | 加载时间预估更保守 | 加载时间预估更乐观 |
 
@@ -145,7 +156,7 @@ estimatedLoadTime = sceneComplexity * BASE_LOAD_TIME
 
 ## Acceptance Criteria
 
-- [ ] 玩家点击按钮后，0.5秒内完成场景切换
+- [ ] 玩家点击按钮后，0.3秒内完成场景切换
 - [ ] 场景切换使用渐入渐出动画
 - [ ] 场景切换时正确传递数据（levelId, result等）
 - [ ] 预加载功能正常工作（主菜单预加载关卡选择）

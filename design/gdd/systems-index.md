@@ -27,11 +27,11 @@
 | 6 | 球物理系统 | Gameplay | MVP | Approved | design/gdd/ball-physics-system.md | 碰撞系统, 边界系统 |
 | 7 | 画线反弹系统 | Gameplay | MVP | Approved | design/gdd/line-bounce-system.md | 输入系统, 碰撞系统, 视觉反馈系统 |
 | 8 | 光点收集系统 | Gameplay | MVP | Approved | design/gdd/light-point-collection-system.md | 碰撞系统, 视觉反馈系统, 音频系统 |
-| 9 | 出界检测系统 | Gameplay | MVP | Approved | design/gdd/out-of-bounds-system.md | 边界系统, 碰撞系统, 音频系统 |
+| 9 | 出界检测系统 | Gameplay | MVP | Approved | design/gdd/out-of-bounds-system.md | 边界系统, 碰撞系统, 游戏状态管理, 球物理系统 |
 | 10 | 关卡系统 | Gameplay | MVP | Approved | design/gdd/level-system.md | 场景管理, 游戏状态管理 |
 | 11 | 音频系统 | Audio | MVP | Approved | design/gdd/audio-system.md | — |
 | 12 | 视觉反馈系统 | Core | MVP | Approved | design/gdd/visual-feedback-system.md | — |
-| 13 | 星级评价系统 | Progression | MVP | Approved | design/gdd/star-rating-system.md | 游戏状态管理, 光点收集系统 |
+| 13 | 星级评价系统 | Progression | MVP | Approved | design/gdd/star-rating-system.md | 游戏状态管理, 关卡系统 |
 | 14 | UI系统 | UI | MVP | Approved | design/gdd/ui-system.md | 游戏状态管理, 关卡系统, 星级评价系统 |
 | 15 | 存档系统 | Persistence | VS | Not Started | — | 游戏状态管理, 关卡系统, 星级评价系统 |
 | 16 | 皮肤系统 | Progression | VS | Not Started | — | UI系统 |
@@ -83,12 +83,12 @@
 1. **球物理系统** — depends on: 碰撞系统, 边界系统
 2. **画线反弹系统** — depends on: 输入系统, 碰撞系统, 视觉反馈系统
 3. **光点收集系统** — depends on: 碰撞系统, 视觉反馈系统, 音频系统
-4. **出界检测系统** — depends on: 边界系统, 碰撞系统, 音频系统
+4. **出界检测系统** — depends on: 边界系统, 碰撞系统, 游戏状态管理, 球物理系统
 5. **关卡系统** — depends on: 场景管理, 游戏状态管理
 
 ### Presentation Layer (depends on features)
 
-1. **星级评价系统** — depends on: 游戏状态管理, 光点收集系统
+1. **星级评价系统** — depends on: 游戏状态管理, 关卡系统
 2. **UI系统** — depends on: 游戏状态管理, 关卡系统, 星级评价系统
 
 ### Polish Layer (depends on presentation)

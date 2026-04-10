@@ -106,11 +106,11 @@ isLevelUnlocked(world, level) =
     { "x": 0.7, "y": 0.5 }
   ],
   "starThresholds": {
-    "one": 2,
+    "one": 1,
     "two": 2,
-    "three": 1
+    "three": 2
   },
-  "maxLines": 3,
+  "maxLines": 5,
   "timeLimit": 0,
   "obstacles": []
 }

@@ -123,10 +123,10 @@ animationDuration = BASE_DURATION * speedMultiplier
 | System | Direction | Nature of Dependency | Status |
 |--------|-----------|---------------------|--------|
 | **输入系统** | 输入 ← | 显示预览线和确认线 | Approved |
-| **画线反弹系统** | 输入 ← | 触发反弹效果 | 未设计 |
-| **光点收集系统** | 输入 ← | 触发收集效果 | 未设计 |
-| **星级评价系统** | 输入 ← | 触发过关效果 | 未设计 |
-| **出界检测系统** | 输入 ← | 触发失败效果 | 未设计 |
+| **画线反弹系统** | 输入 ← | 触发反弹效果 | Approved |
+| **光点收集系统** | 输入 ← | 触发收集效果 | Approved |
+| **星级评价系统** | 输入 ← | 触发过关效果 | Approved |
+| **出界检测系统** | 输入 ← | 触发失败效果 | Approved |
 | **场景管理** | 输入 ← | 清除效果 | Approved |
 
 **注意**：视觉反馈系统是 Foundation 层，没有上游依赖。所有依赖它的系统都在 Feature 或 Presentation 层。
