@@ -47,7 +47,6 @@ Idle --[touch start]--> Drawing --[touch end]--> LinePlaced
 | **画线反弹系统** | 输出 → | `onLineCreated(start: Vec2, end: Vec2)` | 确认线段时，发送起点终点坐标 |
 | **画线反弹系统** | 输出 → | `onLineRemoved(lineId: string)` | 撤销线段时，发送线段ID |
 | **游戏状态管理** | 输入 ← | `canDrawLine(): boolean` | 查询是否还能画线（配额检查） |
-| **游戏状态管理** | 输出 → | `onLineCountChanged(count: number)` | 线段数量变化时通知 |
 | **视觉反馈系统** | 输出 → | `showPreviewLine(start: Vec2, end: Vec2)` | 实时显示预览线 |
 | **视觉反馈系统** | 输出 → | `hidePreviewLine()` | 触摸结束时隐藏预览 |
 | **音频系统** | 输出 → | `playLinePlaceSound()` | 线段确认时播放音效 |

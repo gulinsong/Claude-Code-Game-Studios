@@ -111,7 +111,6 @@
 |--------|-----------|-----------|-------------|
 | **输入系统** | 输入 ← | `onLineCreated(start: Vec2, end: Vec2): void` | 输入系统通知线段创建 |
 | **输入系统** | 输入 ← | `onLineRemoved(lineId: string): void` | 输入系统通知线段撤销 |
-| **输入系统** | 输出 → | `canDrawLine(): boolean` | 查询是否还能画线（配额检查） |
 | **碰撞系统** | 输出 → | `registerLine(start: Vec2, end: Vec2): lineId` | 注册线段为碰撞体 |
 | **碰撞系统** | 输出 → | `unregisterLine(lineId: string): void` | 移除线段碰撞体 |
 | **碰撞系统** | 输入 ← | `onBallHitLine(position: Vec2, normal: Vec2, lineId: string): void` | 球撞线回调 |

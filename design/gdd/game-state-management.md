@@ -153,6 +153,26 @@ interface GameState {
   isPaused: boolean;
 }
 
+interface GameStateManager {
+  // 状态查询
+  getState(): GameState;
+  canDrawLine(): boolean;
+  getCurrentPhase(): GamePhase;
+  hasPendingVictory(): boolean;
+
+  // 事件接收
+  onLineCountChanged(used: number, remaining: number): void;
+  onLightPointCollected(lightPointId: string): void;
+  onBallOutOfBounds(): void;
+  onLevelStart(levelId: string, config: LevelConfig): void;
+
+  // 状态控制
+  setGameState(state: GameState): void;
+  pause(): void;
+  resume(): void;
+  restartLevel(): void;
+}
+
 interface LevelConfig {
   maxLines: number;
   lightPointCount: number;
