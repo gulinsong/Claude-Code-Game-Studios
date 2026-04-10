@@ -10,6 +10,7 @@
  */
 
 import { Vec2, CollisionEvent } from '../interfaces/GameInterfaces';
+import { COLLISION_CONFIG } from '../config/GameConfig';
 
 // ===== Internal registration shapes =====
 
@@ -31,7 +32,7 @@ interface RegisteredBall {
 }
 
 // ===== Collision padding (px) added to ball radius for line detection =====
-const LINE_COLLISION_PADDING = 3;
+const LINE_COLLISION_PADDING = COLLISION_CONFIG.LINE_COLLISION_PADDING;
 
 // ===== ID counters =====
 let nextLineId = 0;

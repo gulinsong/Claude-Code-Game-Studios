@@ -10,10 +10,11 @@
  */
 
 import { BOUNDARY_CONFIG } from '../config/GameConfig';
+import { Vec2 } from '../interfaces/GameInterfaces';
 
-// ===== Safe area defaults (px) for graceful degradation =====
-const DEFAULT_SAFE_AREA_TOP = 44;
-const DEFAULT_SAFE_AREA_BOTTOM = 34;
+// ===== Safe area defaults loaded from config =====
+const DEFAULT_SAFE_AREA_TOP = BOUNDARY_CONFIG.DEFAULT_SAFE_AREA_TOP;
+const DEFAULT_SAFE_AREA_BOTTOM = BOUNDARY_CONFIG.DEFAULT_SAFE_AREA_BOTTOM;
 
 /** Boundary edge data for collision system registration. */
 export interface BoundaryEdges {
@@ -114,7 +115,7 @@ export class BoundarySystem {
      * @param margin Additional margin inside boundaries (e.g. ball radius).
      * @returns true if the position is within all four boundaries.
      */
-    isInsideBounds(pos: { x: number; y: number }, margin: number = 0): boolean {
+    isInsideBounds(pos: Vec2, margin: number = 0): boolean {
         if (!this.edges) return false;
         return (
             pos.x >= this.edges.left + margin &&
@@ -131,7 +132,7 @@ export class BoundarySystem {
      * @param tolerance Extra tolerance below the boundary before counting as OOB.
      * @returns true if the position is below the bottom boundary.
      */
-    isBelowBottom(pos: { x: number; y: number }, tolerance: number = 0): boolean {
+    isBelowBottom(pos: Vec2, tolerance: number = 0): boolean {
         if (!this.edges) return false;
         return pos.y < this.edges.bottom - tolerance;
     }

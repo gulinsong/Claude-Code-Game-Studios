@@ -10,6 +10,7 @@
  */
 
 import { Vec2 } from '../interfaces/GameInterfaces';
+import { LINE_CONFIG } from '../config/GameConfig';
 
 /** Line segment states per GDD. */
 export enum LineState {
@@ -61,7 +62,7 @@ export class LineBounceSystem {
     /** Callback: notify line count changed. */
     public onLineCountChanged: ((used: number, remaining: number) => void) | null;
 
-    constructor(maxLines: number = 3) {
+    constructor(maxLines: number = LINE_CONFIG.MAX_LINES_PER_LEVEL) {
         this.lines = new Map();
         this.maxLines = maxLines;
         this.activeLineCount = 0;

@@ -44,6 +44,7 @@ export const LIGHT_POINT_CONFIG = {
 export const COLLISION_CONFIG = {
     COLLIDER_SCALE: 1.0,        // ball collider vs visual scale
     CCD_VELOCITY_THRESHOLD: 5,  // continuous collision detection threshold
+    LINE_COLLISION_PADDING: 3,  // px — extra thickness for line collision detection
     // Collision categories
     CATEGORY_BALL: 0x0001,
     CATEGORY_LINE: 0x0002,
@@ -56,6 +57,9 @@ export const BOUNDARY_CONFIG = {
     RESTITUTION: 0.8,           // boundary wall bounce
     FRICTION: 0.0,              // boundary wall friction
     BOUNDARY_PADDING: 20,       // px — offset from screen edge
+    BALL_DESTROY_MARGIN: 100,   // px — distance below bottom before ball destruction
+    DEFAULT_SAFE_AREA_TOP: 44,  // px — default top safe area (notch/status bar)
+    DEFAULT_SAFE_AREA_BOTTOM: 34, // px — default bottom safe area (home indicator)
 } as const;
 
 // ===== Audio System (GDD: audio-system.md) =====

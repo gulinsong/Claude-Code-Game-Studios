@@ -9,8 +9,8 @@
 
 import { BOUNDARY_CONFIG } from '../config/GameConfig';
 
-/** Ball destroy margin below screen (px). */
-const BALL_DESTROY_MARGIN = 100;
+/** Ball destroy margin below screen (px), sourced from config. */
+const BALL_DESTROY_MARGIN = BOUNDARY_CONFIG.BALL_DESTROY_MARGIN;
 
 /** Detection states per GDD. */
 export enum OutOfBoundsState {
