@@ -36,26 +36,26 @@ export interface BgmEntry {
 /** All gameplay sound effects. */
 export const SFX_MANIFEST: readonly SfxEntry[] = [
     // Core gameplay
-    { id: 'bounce',       file: 'bounce.mp3',       baseVolume: 0.8, duration: 0.2 },
-    { id: 'collect',      file: 'collect.mp3',      baseVolume: 0.7, duration: 0.4 },
-    { id: 'win',          file: 'win.mp3',          baseVolume: 0.9, duration: 1.2 },
-    { id: 'lose',         file: 'lose.mp3',         baseVolume: 0.6, duration: 0.6 },
-    { id: 'line_place',   file: 'line_place.mp3',   baseVolume: 0.5, duration: 0.12 },
-    { id: 'line_reject',  file: 'line_reject.mp3',  baseVolume: 0.4, duration: 0.12 },
+    { id: 'bounce',       file: 'bounce.wav',       baseVolume: 0.8, duration: 0.2 },
+    { id: 'collect',      file: 'collect.wav',      baseVolume: 0.7, duration: 0.4 },
+    { id: 'win',          file: 'win.wav',          baseVolume: 0.9, duration: 1.2 },
+    { id: 'lose',         file: 'lose.wav',         baseVolume: 0.6, duration: 0.6 },
+    { id: 'line_place',   file: 'line_place.wav',   baseVolume: 0.5, duration: 0.12 },
+    { id: 'line_reject',  file: 'line_reject.wav',  baseVolume: 0.4, duration: 0.12 },
 
     // UI sounds
-    { id: 'button_click', file: 'button_click.mp3', baseVolume: 0.4, duration: 0.08 },
-    { id: 'level_select', file: 'level_select.mp3', baseVolume: 0.5, duration: 0.15 },
-    { id: 'world_unlock', file: 'world_unlock.mp3', baseVolume: 0.7, duration: 0.5 },
-    { id: 'pause_open',   file: 'pause_open.mp3',   baseVolume: 0.3, duration: 0.1 },
-    { id: 'pause_close',  file: 'pause_close.mp3',  baseVolume: 0.3, duration: 0.1 },
-    { id: 'result_appear',file: 'result_appear.mp3',baseVolume: 0.5, duration: 0.15 },
+    { id: 'button_click', file: 'button_click.wav', baseVolume: 0.4, duration: 0.08 },
+    { id: 'level_select', file: 'level_select.wav', baseVolume: 0.5, duration: 0.15 },
+    { id: 'world_unlock', file: 'world_unlock.wav', baseVolume: 0.7, duration: 0.5 },
+    { id: 'pause_open',   file: 'pause_open.wav',   baseVolume: 0.3, duration: 0.1 },
+    { id: 'pause_close',  file: 'pause_close.wav',  baseVolume: 0.3, duration: 0.1 },
+    { id: 'result_appear',file: 'result_appear.wav',baseVolume: 0.5, duration: 0.15 },
 ] as const;
 
 /** All background music tracks. */
 export const BGM_MANIFEST: readonly BgmEntry[] = [
-    { id: 'menu_music',     file: 'menu_music.mp3',     baseVolume: 0.6, loop: true },
-    { id: 'gameplay_music', file: 'gameplay_music.mp3', baseVolume: 0.5, loop: true },
+    { id: 'menu_music',     file: 'menu_music.wav',     baseVolume: 0.6, loop: true },
+    { id: 'gameplay_music', file: 'gameplay_music.wav', baseVolume: 0.5, loop: true },
 ] as const;
 
 /** Lookup map: sound ID → SFX entry. */

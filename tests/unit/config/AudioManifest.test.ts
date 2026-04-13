@@ -22,9 +22,9 @@ describe('AudioManifest', () => {
             expect(new Set(ids).size).toBe(ids.length);
         });
 
-        test('all files are MP3', () => {
+        test('all files are WAV', () => {
             for (const entry of SFX_MANIFEST) {
-                expect(entry.file).toMatch(/\.mp3$/);
+                expect(entry.file).toMatch(/\.wav$/);
             }
         });
 
