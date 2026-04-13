@@ -3,7 +3,7 @@
 > **Sprint Duration**: 3 sessions
 > **Goal**: Implement UI system pure logic, create engine adapter skeleton
 > **Started**: 2026-04-13
-> **Status**: In Progress
+> **Status**: Complete
 
 ---
 
@@ -48,8 +48,19 @@ Sprint 1's Feature and Presentation logic layers were completed ahead of schedul
 
 ## Definition of Done
 
-- [ ] UI system unit tests pass
-- [ ] All previous tests still pass (472 + new)
-- [ ] UI system has ADR
-- [ ] Engine adapter compiles (TypeScript)
+- [x] UI system unit tests pass (87 tests across UIScreenController, HUDController, OverlayController)
+- [x] All previous tests still pass (559 total, 19 suites)
+- [x] UI system has ADR (adr-014-ui-system.md)
+- [x] Engine adapter compiles (TypeScript — GameplaySceneAdapter, InputBridge)
 - [ ] Sprint retrospective completed
+
+## Results
+
+- **UIScreenController**: Screen navigation (back-stack), overlay lifecycle, debounce, layout calculations — 47 tests
+- **HUDController**: Lines, light points, session time data binding — 20 tests
+- **OverlayController**: Win/lose result content assembly — 20 tests
+- **UIConfig**: All layout constants for 750x1334 design resolution
+- **ADR-014**: UI system architecture documented
+- **GameplaySceneAdapter**: Cocos Creator component wiring coordinator to engine
+- **InputBridge**: Standalone touch-to-logic converter
+- **Total tests**: 559 (87 new) across 19 suites — all passing
