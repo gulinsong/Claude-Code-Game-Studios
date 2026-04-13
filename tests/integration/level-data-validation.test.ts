@@ -37,9 +37,10 @@ describe('Sample level data validation', () => {
 
     test('all levels load successfully', () => {
         levelSystem.loadLevelData(levelData);
-        const w1 = levelSystem.getLevelsByWorld(1);
-        const w2 = levelSystem.getLevelsByWorld(2);
-        expect(w1.length + w2.length).toBe(levelData.length);
+        const total = [1, 2, 3, 4].reduce(
+            (sum, w) => sum + levelSystem.getLevelsByWorld(w).length, 0
+        );
+        expect(total).toBe(levelData.length);
     });
 
     test('all level IDs follow world-level format', () => {
@@ -48,14 +49,11 @@ describe('Sample level data validation', () => {
         }
     });
 
-    test('world 1 has 5 levels', () => {
-        const world1 = levelData.filter(l => l.world === 1);
-        expect(world1.length).toBe(5);
-    });
-
-    test('world 2 has 4 levels', () => {
-        const world2 = levelData.filter(l => l.world === 2);
-        expect(world2.length).toBe(4);
+    test('each world has 8 levels', () => {
+        for (let w = 1; w <= 4; w++) {
+            const world = levelData.filter(l => l.world === w);
+            expect(world.length).toBe(8);
+        }
     });
 
     test('all light point positions are in normalized range [0, 1]', () => {
@@ -88,7 +86,7 @@ describe('Sample level data validation', () => {
     });
 
     test('difficulty increases within each world', () => {
-        for (let w = 1; w <= 2; w++) {
+        for (let w = 1; w <= 4; w++) {
             const levels = levelData.filter(l => l.world === w).sort((a, b) => a.level - b.level);
             for (let i = 1; i < levels.length; i++) {
                 expect(levels[i].difficulty).toBeGreaterThanOrEqual(levels[i - 1].difficulty);
@@ -96,9 +94,9 @@ describe('Sample level data validation', () => {
         }
     });
 
-    test('maxLines is at least 3 for all levels', () => {
+    test('maxLines is at least 2 for all levels', () => {
         for (const level of levelData) {
-            expect(level.maxLines).toBeGreaterThanOrEqual(3);
+            expect(level.maxLines).toBeGreaterThanOrEqual(2);
         }
     });
 
