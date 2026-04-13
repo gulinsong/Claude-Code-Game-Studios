@@ -8,24 +8,24 @@
     "separateEngine": true,
     "subpackages": [
       {
-        "name": "common",
-        "root": "assets/resources/common"
+        "name": "audio",
+        "root": "assets/audio"
       },
       {
-        "name": "spring",
-        "root": "assets/resources/spring"
+        "name": "world1",
+        "root": "assets/textures/backgrounds/world1"
       },
       {
-        "name": "summer",
-        "root": "assets/resources/summer"
+        "name": "world2",
+        "root": "assets/textures/backgrounds/world2"
       },
       {
-        "name": "autumn",
-        "root": "assets/resources/autumn"
+        "name": "world3",
+        "root": "assets/textures/backgrounds/world3"
       },
       {
-        "name": "winter",
-        "root": "assets/resources/winter"
+        "name": "world4",
+        "root": "assets/textures/backgrounds/world4"
       }
     ],
     "wasmSubpackage": false,
