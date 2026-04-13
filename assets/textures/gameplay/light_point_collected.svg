@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <defs>
+    <radialGradient id="lpcGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="1"/>
+      <stop offset="50%" stop-color="#FFE66D" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#FFE66D" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- Dimmed collected state -->
+  <circle cx="24" cy="24" r="10" fill="#D0D0D0" opacity="0.4"/>
+  <circle cx="24" cy="24" r="4" fill="#AAAAAA" opacity="0.3"/>
+</svg>

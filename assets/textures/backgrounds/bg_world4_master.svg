@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 1334" width="750" height="1334">
+  <defs>
+    <linearGradient id="bg4" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FEF9E7"/>
+      <stop offset="50%" stop-color="#FCF3CF"/>
+      <stop offset="100%" stop-color="#F9E79F"/>
+    </linearGradient>
+    <radialGradient id="sunGrad" cx="50%" cy="30%" r="40%">
+      <stop offset="0%" stop-color="#FFE66D" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#FFE66D" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="750" height="1334" fill="url(#bg4)"/>
+  <rect width="750" height="1334" fill="url(#sunGrad)"/>
+  <!-- Star decorations for final world -->
+  <polygon points="600,150 604,162 617,162 607,170 610,182 600,174 590,182 593,170 583,162 596,162" fill="#F4D03F" opacity="0.3"/>
+  <polygon points="150,800 154,812 167,812 157,820 160,832 150,824 140,832 143,820 133,812 146,812" fill="#F4D03F" opacity="0.25"/>
+</svg>

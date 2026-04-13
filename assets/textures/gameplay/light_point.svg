@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <defs>
+    <radialGradient id="lpGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="1"/>
+      <stop offset="30%" stop-color="#FFE66D" stop-opacity="0.95"/>
+      <stop offset="70%" stop-color="#FFD93D" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#FFD93D" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="lpGlow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- Outer glow ring -->
+  <circle cx="24" cy="24" r="20" fill="none" stroke="#FFE66D" stroke-width="1" opacity="0.3"/>
+  <!-- Glow body -->
+  <circle cx="24" cy="24" r="16" fill="url(#lpGrad)" filter="url(#lpGlow)"/>
+  <!-- Core bright spot -->
+  <circle cx="24" cy="24" r="6" fill="white" opacity="0.9"/>
+  <!-- Sparkle cross -->
+  <line x1="24" y1="8" x2="24" y2="12" stroke="white" stroke-width="1.5" opacity="0.6" stroke-linecap="round"/>
+  <line x1="24" y1="36" x2="24" y2="40" stroke="white" stroke-width="1.5" opacity="0.6" stroke-linecap="round"/>
+  <line x1="8" y1="24" x2="12" y2="24" stroke="white" stroke-width="1.5" opacity="0.6" stroke-linecap="round"/>
+  <line x1="36" y1="24" x2="40" y2="24" stroke="white" stroke-width="1.5" opacity="0.6" stroke-linecap="round"/>
+</svg>

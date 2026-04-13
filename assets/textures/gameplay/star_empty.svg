@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <polygon
+    points="40,4 49,28 74,28 54,44 61,68 40,54 19,68 26,44 6,28 31,28"
+    fill="none"
+    stroke="#CCCCCC"
+    stroke-width="2"
+    opacity="0.5"
+  />
+</svg>
