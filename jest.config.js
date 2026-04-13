@@ -6,6 +6,7 @@ module.exports = {
   collectCoverageFrom: [
     'src/**/*.ts',
     '!src/**/*.d.ts',
+    '!src/engine/**',  // Engine adapters require Cocos Creator runtime
   ],
   coverageDirectory: 'coverage',
   coverageThreshold: {
